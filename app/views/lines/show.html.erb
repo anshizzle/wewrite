@@ -1,24 +1,27 @@
-<div id="story" class="box">
-	<% @lines.each do |line| %>
-		<span class="story-line" data-id="<%=line.id%>"><%= link_to line.text, line_path(line) %></span>
-	<% end %>
 
+<div class="box-container">
+	<div id="story" class="box">
+		<% @lines.each do |line| %>
+			<span class="story-line" data-id="<%=line.id%>"><%= link_to line.text, line_path(line) %></span>
+		<% end %>
 
-
-</div>
-	<% if @next_lines.count > 0 %>
-		<div class="well">
-			Next Lines: <br />
-			<ul id="next-lines">
-				<% @next_lines.each do |line| %>
-					<li data-id="<%=line.id%>"><%= link_to line.text, '#', :class => "select-next-line" %> </li>
-				<% end %>
-			</ul>
-		</div>
-	<% end %>
-
-	<br />
-
-	<div class="next-line-box">
-	<%= link_to '+ Add the next line', new_line_path(:previous_line_id => @lines.last.id) %>
 	</div>
+
+	<div class="next-steps">
+		<% if @next_lines.count > 0 %>
+			<div class="mini-box">
+				Next Lines: <br />
+				<ul id="next-lines">
+					<% @next_lines.each do |line| %>
+						<li data-id="<%=line.id%>"><%= link_to line.text, '#', :class => "select-next-line" %> </li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+
+		<div class="new-line-box">
+			<%= "The story ends here, or does it? ..." if @next_lines.count == 0 %> 
+			<%= link_to '+ Add new line', new_line_path(:previous_line_id => @lines.last.id), :class=>'new_line_link' %>
+		</div>
+	</div>
+</div>
