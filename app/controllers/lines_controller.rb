@@ -16,6 +16,4 @@ class LinesController < ApplicationController
 
 	end
 
-
-
 end
