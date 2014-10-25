@@ -27,7 +27,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'annotate',	 group: :development
 
-gem 'bootstrap-sass'
+gem 'sass-rails', '>=3.2'
+gem 'bootstrap-sass'. '~>3.2.0'
 
 
 # Use ActiveModel has_secure_password
