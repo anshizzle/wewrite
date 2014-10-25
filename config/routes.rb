@@ -29,7 +29,11 @@ Rails.application.routes.draw do
 
   root to: "application#index"
 
-  resources :lines
+  resources :lines do 
+    member do
+      get 'select_next'
+    end
+  end
 
   # Example resource route with sub-resources:
   #   resources :products do
