@@ -1,23 +1,23 @@
+
 <div class="box-container">
-	<div class="box">
+	<div id="story" class="box">
 		<% @lines.each do |line| %>
-			<%= link_to line.text, line_path(line) %>  
+			<span class="story-line" data-id="<%=line.id%>"><%= link_to line.text, line_path(line) %></span>
 		<% end %>
 
 	</div>
-	<% if @next_lines.count > 0 %>
-		<div class="mini-box">
 
+	<div class="next-steps">
+		<% if @next_lines.count > 0 %>
+			<div class="mini-box">
 				Next Lines: <br />
 				<ul id="next-lines">
 					<% @next_lines.each do |line| %>
-						<li><%= link_to line.text, line_path(line) %> </li>
+						<li data-id="<%=line.id%>"><%= link_to line.text, '#', :class => "select-next-line" %> </li>
 					<% end %>
 				</ul>
-
-		</div>
-
-	<% end %>
+			</div>
+		<% end %>
 
 			<div class="new-line-box">
 
