@@ -2,12 +2,12 @@
 <div class="box-container">
 	<div id="story" class="box">
 		<% @lines.each do |line| %>
-			<span class="story-line" data-id="<%=line.id%>"><%= link_to line.text, line_path(line) %></span>
+			<span class="story-line" data-id="<%=line.id%>"><%= link_to line.text, '#', :class=>"story-line" %></span>
 		<% end %>
 
 	</div>
 
-	<div class="next-steps">
+	<div id="next-steps">
 		<% if @next_lines.count > 0 %>
 			<div class="mini-box">
 				Next Lines: <br />

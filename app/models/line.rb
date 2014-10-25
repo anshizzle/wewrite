@@ -15,6 +15,7 @@ class Line < ActiveRecord::Base
 
 	scope :first_lines, -> { where previous_line_id: nil}
 
+	belongs_to :user
 	belongs_to :previous_line, :class_name => "Line", :foreign_key => "previous_line_id"
 	has_many :next_lines, :class_name => "Line", :foreign_key => "previous_line_id"
 	validates_presence_of :text
