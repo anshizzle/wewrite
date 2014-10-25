@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141025174713) do
+ActiveRecord::Schema.define(version: 20141025183643) do
 
   create_table "lines", force: true do |t|
     t.string   "text"
-    t.integer  "score"
-    t.integer  "depth"
+    t.integer  "score",            default: 0
+    t.integer  "depth",            default: 0
     t.integer  "previous_line_id"
     t.datetime "created_at"
     t.datetime "updated_at"
