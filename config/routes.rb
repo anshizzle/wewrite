@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   #     end
   #   end
 
+  root to: "application#index"
+
   resources :lines
 
   # Example resource route with sub-resources:

@@ -13,5 +13,5 @@
 
 class Line < ActiveRecord::Base
 	belongs_to :previous_line, :class_name => "Line", :foreign_key => "previous_line_id"
-	validates_pr
+	
 end
