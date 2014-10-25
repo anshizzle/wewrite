@@ -39,7 +39,15 @@
      <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
 <% end %>
 
-<%= yield %>
 
+	<div class="row">
+		<div class="col-lg-2">
+		</div>
+		<div class="col-lg-8">	
+			<%= yield %>
+		</div>
+		<div class="col-lg-2">
+		</div>
+	</div>
 </body>
 </html>

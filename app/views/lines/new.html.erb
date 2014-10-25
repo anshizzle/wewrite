@@ -1,0 +1,6 @@
+<%= form_for @line do |f| %>
+	<%= f.text_area :text, :placeholder => "type your line here", :class => "form-control" %>
+	<%= f.hidden_field :previous_line_id, :value => @line.previous_line_id %>
+	<%= f.submit :class => "form-control" %>
+
+<% end %>
