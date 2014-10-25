@@ -8,7 +8,7 @@
 		Next Lines: <br />
 		<ul id="next-lines">
 			<% @next_lines.each do |line| %>
-				<li><%= link_to line.text, line_path(line) %> </li>
+				<li data-id="<%= line.id %>"><%= link_to line.text, line_path(line) %> </li>
 			<% end %>
 		</ul>
 	</div>

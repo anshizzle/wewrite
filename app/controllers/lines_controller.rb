@@ -1,13 +1,11 @@
 class LinesController < ApplicationController
 
 	def new
-
 		params[:previous_line_id].nil? ? @line = Line.new : @line = Line.find(params[:previous_line_id]).next_lines.create
 	end
 
 	def create
 		@line = Line.create(line_params)
-
 		redirect_to line_path(@line)
 	end
 
