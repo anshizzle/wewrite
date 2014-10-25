@@ -1,0 +1,6 @@
+<% @lines.each do |line| %>
+	<%= link_to "#{line.text}...", 	line_path(line) %> <br />
+<% end %>
+
+
+<%= link_to '+', new_line_path %>	
