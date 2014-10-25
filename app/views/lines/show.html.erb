@@ -1,19 +1,24 @@
-<% @lines.each do |line| %>
-	<%= link_to line.text, line_path(line) %>  
-<% end %>
+<div class="box">
+	<% @lines.each do |line| %>
+		<%= link_to line.text, line_path(line) %>  
+	<% end %>
 
 
-<% if @next_lines.count > 0 %>
-	<div class="well">
-		Next Lines: <br />
-		<ul id="next-lines">
-			<% @next_lines.each do |line| %>
-				<li><%= link_to line.text, line_path(line) %> </li>
-			<% end %>
-		</ul>
+
+</div>
+	<% if @next_lines.count > 0 %>
+		<div class="well">
+			Next Lines: <br />
+			<ul id="next-lines">
+				<% @next_lines.each do |line| %>
+					<li><%= link_to line.text, line_path(line) %> </li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<br />
+
+	<div class="next-line-box">
+	<%= link_to '+ Add the next line', new_line_path(:previous_line_id => @lines.last.id) %>
 	</div>
-<% end %>
-
-<br />
-
-<%= link_to '+ Add the next line', new_line_path(:previous_line_id => @lines.last.id) %>
