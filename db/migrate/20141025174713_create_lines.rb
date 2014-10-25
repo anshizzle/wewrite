@@ -4,7 +4,7 @@ class CreateLines < ActiveRecord::Migration
       t.string :text
       t.integer :score
       t.integer :depth
-      t.integer :previous_line
+      t.integer :previous_line_id
 
       t.timestamps
     end
