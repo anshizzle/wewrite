@@ -16,9 +16,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.box-container a{
+.navbar {
+	font-family: 'Cardo', serif;
+}
+body {
+	font-family: 'Cardo', serif;
+	font-size: 15px;
+}
+
+.box-container a {
 	color:black;
 }
+
 .box {
 	position: relative;
 	width: 800px;

@@ -19,9 +19,15 @@
 			</div>
 		<% end %>
 
-		<div class="new-line-box">
-			<%= "The story ends here, or does it? ..." if @next_lines.count == 0 %> 
-			<%= link_to '+ Add new line', new_line_path(:previous_line_id => @lines.last.id), :class=>'new_line_link' %>
-		</div>
-	</div>
+			<div class="new-line-box">
+
+				<% if @next_lines.count == 0 %>
+
+				<%= link_to "The story ends here, or does it? .... + Add new line", new_line_path(:previous_line_id => @lines.last.id) %> 
+				<% else %>
+				
+				<%= link_to '+ Add new line', new_line_path(:previous_line_id => @lines.last.id) %>
+				<% end %>
+			</div>
+
 </div>
