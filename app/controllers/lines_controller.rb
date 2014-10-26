@@ -27,7 +27,7 @@ class LinesController < ApplicationController
 	private
 
 	def line_params
-		params.require(:line).permit(:text, :previous_line_id)
+		params.require(:line).permit(:text, :previous_line_id, :user_id)
 	end
 
 

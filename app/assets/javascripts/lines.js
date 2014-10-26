@@ -11,7 +11,7 @@ $(document).ready(function() {
 	//when a ne
 	setUpNextLines();
 	setUpStoryLines();
-
+	setUpNewLineLink();
 });
 
 function setUpNextLines() {
@@ -43,7 +43,7 @@ function setUpNextLines() {
 
 function setUpStoryLines() {
 	$("a.story-line").click(function() {
-		console.log("clicked");
+		console.log("old story clicked");
 		var line = $(this).text();
 		var line_id = $(this).parent().data("id");
 		$(this).parent().nextAll('span').fadeOut(500, function() { $(this).remove();}); 
@@ -59,6 +59,22 @@ function setUpStoryLines() {
 
 	})
 }
+
+function setUpNewLineLink() {
+	$(".new-line-link").click(function() {
+		console.log("creating new line");
+		var line_id = $("#story span").last().data("id");
+		var m_url = "/lines/new?previous_line_id=" + line_id;
+
+		$.ajax({
+			url: m_url
+		}).done(function(data) {
+			console.log(data);
+		});
+	});
+
+}
+
 
 //Handle response from lines#select_next
 function handleSelectNextResponse(data,line, line_id) {
@@ -98,3 +114,5 @@ function handleSelectNextResponse(data,line, line_id) {
 
 	}
 }
+
+
