@@ -36,7 +36,7 @@ gem 'letter_opener', group: :development
 
 
 # use these gems for twitter authentication on login
-
+gem 'byebug', group: :development
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter' 

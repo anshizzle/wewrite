@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   resources :lines do 
     member do
       get 'select_next'
+      post 'send_invite'
     end
   end
 
