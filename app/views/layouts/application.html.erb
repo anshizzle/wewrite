@@ -45,7 +45,10 @@
        <li> <a href="#"> Signed in as <%= current_user.name %>. Not you? </a></li><li> 
         <%= link_to "Sign out", destroy_user_session_path,:method => :delete %></li>
         <% else %>
-        <li><%= link_to "Sign in with Twitter", user_omniauth_authorize_path(:twitter) %></li>
+        <li><%= link_to user_omniauth_authorize_path(:twitter) do %>
+              <img src="https://g.twimg.com/dev/sites/default/files/images_documentation/sign-in-with-twitter-link.png">
+            <% end %>
+        </li>
       <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

@@ -55,11 +55,7 @@ function setUpStoryLines() {
 		$.ajax({
 			url: url
 		}).done(function(data) {
-
 			handleSelectNextResponse(data, line, line_id);
-
-
-
 		});
 
 	})
@@ -86,6 +82,7 @@ function handleSelectNextResponse(data,line, line_id) {
 	//if there are next lines, then replace the next-lines ul
 	console.log(data);
 	$("#next-steps").html(data);
+	console.log("Updated dom");
 	// if(data.length > 0) {
 	// 	console.log(data);
 	// 	html = "<div id='next-steps'><div class='mini-box'>Next Lines: <ul id='next-lines'>";
