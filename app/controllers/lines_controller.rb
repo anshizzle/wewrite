@@ -28,7 +28,7 @@ class LinesController < ApplicationController
 	# if params[:deeper_line_id] is not nil, that means that they want to render up to the nested line id
 	def show
 		@lines = Line.find(params[:id]).collect_lines
-		@next_lines = @lines.last.next_lines
+		@next_lines = @lines.last.next_lines.ranked
 		@lines.last.update_attribute(:score, @lines.last.score + 1)
 	end
 
@@ -36,7 +36,7 @@ class LinesController < ApplicationController
 		@line = Line.find(params[:id])
 		@line.update_attribute(:score, @line.score + 1)
 
-		@next_lines = @line.next_lines
+		@next_lines = @line.next_lines.ranked
 		render :layout => false
 	end
 
