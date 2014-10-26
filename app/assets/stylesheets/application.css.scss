@@ -72,15 +72,26 @@ body {
 .share {
 	float:right;
 }
-.panel-footer {
-	position:absolute;
-	bottom: 0;
-	width: 100%;
-	height:50px;
-	padding: 5px;
-	
-	
+
+.panel-footer, .page-wrap:after {
+  height: 50px; 
 }
+
+.panel-footer {
+	padding:5px;
+	width: 100%;
+}
+
+// .panel-footer {
+
+// 	position:absolute;
+// 	bottom: 0;
+// 	width: 100%;
+// 	height:50px;
+// 	padding: 5px;
+	
+	
+// }
 .panel-footer a {
 	color:black;
 }
