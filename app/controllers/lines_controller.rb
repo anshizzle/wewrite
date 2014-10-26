@@ -42,7 +42,7 @@ class LinesController < ApplicationController
 
 	def send_invite
 		if user_signed_in?
-			UserInvite.send_invite_email(current_user, params[:email])
+			UserInvite.send_invite_email(current_user,Line.find(params[:id]), params[:email])
 			flash[:notice] = "Your invite was sent!"
 		else
 			flash[:error] = "Please sign in"

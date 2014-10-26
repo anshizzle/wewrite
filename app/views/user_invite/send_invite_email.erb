@@ -6,8 +6,9 @@
   </head>
   <body>
     <h1>Come write with me!</h1>
-    <p>I've just written a <%= @line.last %> Sign up and help me write this story!</p>
-    <h3>LINK TO WERITE LINE</h3>
+    <p>I've just written "<%= @line.text %>" in a story.</p>
+    <p> Sign up and help me write this story!</p>
+    <h3><%= link_to 'Check it out!', line_path(@line) %></h3>
 
     <p>Looking forward to writing with you!</p>
 <%= @user.name %>
