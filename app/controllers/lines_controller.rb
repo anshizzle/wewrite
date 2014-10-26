@@ -2,12 +2,17 @@ class LinesController < ApplicationController
 
 	def new
 		params[:previous_line_id].nil? ? @line = Line.new : @line = Line.find(params[:previous_line_id]).next_lines.create
+		
+
+		render :layout => false if params[:ajax]
 	end
 
 	def create
 		@line = Line.create(line_params)
 		redirect_to line_path(@line)
 	end
+
+
 
 	# params[:id] should correspond to the first line of the story.
 	# if params[:deeper_line_id] is not nil, that means that they want to render up to the nested line id

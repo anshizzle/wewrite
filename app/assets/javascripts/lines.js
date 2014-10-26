@@ -2,17 +2,22 @@
 	LINES JS
 	ALL THE COOL AJAX JAVASCRIPT WILL GO HERE
 
-	TO-DO - HAVE LINES LOAD DYNAMICALLY
+	doesn't work sometimes on first pageload.
 */
 
 
 $(document).ready(function() {
 
-	//when a ne
+	
+	setUp();
+});
+
+function setUp() {
 	setUpNextLines();
 	setUpStoryLines();
 	setUpNewLineLink();
-});
+
+}
 
 function setUpNextLines() {
 	$(".select-next-line").click(function() {
@@ -21,6 +26,8 @@ function setUpNextLines() {
 		console.log("next line selected: " + $(this).text());
 		var line = $(this).text();
 		var line_id = $(this).parent().data("id");
+
+		debugger;
 
 		var html = $("<span class='story-line' data-id='" + line_id + "'><a href='#' class='story-line'>" + line + "</a> </span>").hide().fadeIn(500);
 
@@ -64,12 +71,12 @@ function setUpNewLineLink() {
 	$(".new-line-link").click(function() {
 		console.log("creating new line");
 		var line_id = $("#story span").last().data("id");
-		var m_url = "/lines/new?previous_line_id=" + line_id;
+		var m_url = "/lines/new?previous_line_id=" + line_id + "&ajax=1";
 
 		$.ajax({
 			url: m_url
 		}).done(function(data) {
-			console.log(data);
+			$(".new-line-box").html(data);
 		});
 	});
 
@@ -99,8 +106,7 @@ function handleSelectNextResponse(data,line, line_id) {
 		//   $(this).html(html).fadeIn(500);
 		// });
 
-		setUpNextLines();
-		setUpStoryLines();
+		setUp();
 
 		window.history.pushState('page', "WeWrite - " + line, '/lines/' + line_id);
 	}
