@@ -3,7 +3,7 @@ class LinesController < ApplicationController
 	def new
 		params[:previous_line_id].nil? ? @line = Line.new : @line = Line.find(params[:previous_line_id]).next_lines.create
 		
-
+		@ajax = true if params[:ajax]
 		render :layout => false if params[:ajax]
 	end
 
