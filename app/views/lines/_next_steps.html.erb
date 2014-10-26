@@ -15,12 +15,12 @@
 				<% if @next_lines.count == 0 %>
 
 					<%= link_to new_line_path(:previous_line_id => @lines.last.id), :class => "new-line-link" do %>
-					<span class="glyphicon glyphicon-edit"></span> The story ends here, or does it? ....  Add new line
-				<% end %>
+						<span class="glyphicon glyphicon-edit"></span> The story ends here, or does it? ....  Add new line
+					<% end %>
 				<% else %>
 
 				
-				<%= link_to '#', :class => "new-line-link" do %>
+				<%= link_to new_line_path(:previous_line_id => @lines.last.id), :class => "new-line-link" do %>
 					<span class="glyphicon glyphicon-edit"></span> Add new line
 				<% end %>
 				<% end %>

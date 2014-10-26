@@ -3,6 +3,8 @@ class LinesController < ApplicationController
 	def new
 		params[:previous_line_id].nil? ? @line = Line.new : @line = Line.find(params[:previous_line_id]).next_lines.create
 		
+		@lines = @line.collect_lines
+
 		@ajax = true if params[:ajax]
 		render :layout => false if params[:ajax]
 	end
@@ -35,6 +37,7 @@ class LinesController < ApplicationController
 	def select_next
 		@line = Line.find(params[:id])
 		@line.update_attribute(:score, @line.score + 1)
+		@lines = [@line]
 
 		@next_lines = @line.next_lines.ranked
 		render :layout => false

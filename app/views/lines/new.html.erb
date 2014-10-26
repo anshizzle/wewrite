@@ -1,17 +1,32 @@
 <% unless @ajax %>
-	<div class="row">
-	<div class="col-lg-4">
+<div class="row">
+	<div class="col-lg-2">
 	</div>
 
-	<div class="col-lg-4">
 
-	<%= render 'form' %>
-	</div>
-	<div class="col-lg-4">
+	<div class="box-container col-lg-7	">
+
+
+		<div id="story" class="box">
+			<% @lines.each do |line| %>
+				<span class="story-line" data-id="<%=line.id%>"><%= link_to line.text, '#', :class=>"story-line" %></span>
+			<% end %>
+
+		</div>
+
+		<div id="next-steps">
+				<%= render 'form' %>
+		</div>
+	
+
+	<span style="font-size:.9em; margin-bottom:15px; display:block;">*If the links don't work, try refreshing.</span>
 
 	</div>
 
+	<div class="col-lg-2" style="padding-right:25px;">
+		<%= render 'invite' %>
 	</div>
+
 
 <% else %>
 
