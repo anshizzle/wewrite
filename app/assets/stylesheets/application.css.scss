@@ -73,25 +73,25 @@ body {
 	float:right;
 }
 
-.panel-footer, .page-wrap:after {
+.page-wrap:after {
   height: 50px; 
 }
 
-.panel-footer {
-	padding:5px;
-	width: 100%;
-}
-
 // .panel-footer {
-
-// 	position:absolute;
-// 	bottom: 0;
+// 	padding:5px;
 // 	width: 100%;
-// 	height:50px;
-// 	padding: 5px;
-	
-	
 // }
+
+.panel-footer {
+
+	position:absolute;
+	bottom: 0px;
+	width: 100%;
+	height:50px;
+	padding: 5px;
+	
+	
+}
 .panel-footer a {
 	color:black;
 }
