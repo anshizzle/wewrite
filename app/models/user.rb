@@ -20,11 +20,13 @@
 #
 
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :omniauthable, :registerable,
+	# Include default devise modules. Others available are:
+	# :confirmable, :lockable, :timeoutable and :omniauthable
+	devise :database_authenticatable, :omniauthable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-	
+         
+   	has_many :lines
+
 	def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
 	    user = User.where(:provider => auth.provider, :uid => auth.uid).first
 	    if user
