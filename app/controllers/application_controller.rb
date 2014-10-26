@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
   	@lines = Line.first_lines.ranked.offset(@start).limit(@num_display)
 
   end
+
+  def about 
+  	
+  end 
 end
