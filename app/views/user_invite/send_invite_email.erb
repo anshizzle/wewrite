@@ -2,15 +2,21 @@
 
 <html>
   <head>
+   <style type="text/css">
+    body { position: relative; width: 75%; padding: 50px; min-height: 400px; margin: 0 auto; background-color: white; box-shadow: 0px 1px 2px #888888;font-family: 'Cardo', serif;}
+
+    </style>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
-  <body>
-    <h1>Come write with me!</h1>
-    <p>I've just written "<%= @line.text %>" in a story.</p>
-    <p> Sign up and help me write this story!</p>
-    <h3><%= link_to 'Check it out!', line_path(@line) %></h3>
+<body>
+    
+        <h1>Come write with me!</h1>
+        <p>I've just written "<%= @line.text %>" in a story.</p>
+        <p> Sign up and help me write this story!</p>
+        <h3><%= link_to 'Check it out!', line_path(@line) %></h3>
 
-    <p>Looking forward to writing with you!</p>
-<%= @user.name %>
-  </body>
+        <p>Looking forward to writing with you!</p>
+   
+  <%= @user.name %>
+</body>
 </html>
