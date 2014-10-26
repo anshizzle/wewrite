@@ -6,39 +6,7 @@
 		<% end %>
 
 	</div>
-
 	<div id="next-steps">
-		<% if @next_lines.count > 0 %>
-			<div class="mini-box">
-				Next Lines: <br />
-				<ul id="next-lines">
-					<% @next_lines.each do |line| %>
-						<li data-id="<%=line.id%>"><%= link_to line.text, '#', :class => "select-next-line" %> </li>
-					<% end %>
-				</ul>
-			</div>
-		<% end %>
-
-			<div class="new-line-box">
-
-				<% if @next_lines.count == 0 %>
-
-					<%= link_to '#', :class => "new-line-link" do %>
-					<span class="glyphicon glyphicon-edit"></span> The story ends here, or does it? ....  Add new line
-				<% end %>
-				<% else %>
-
-				
-				<%= link_to '#', :class => "new-line-link" do %>
-					<span class="glyphicon glyphicon-edit"></span> Add new line
-				<% end %>
-				<% end %>
-				<div class="share">
-					<div class="dropdown">
-					  <a role="menuitem" tabindex="-1" href="https://twitter.com/share" data-text="Checkout this story on WeWrite!" data-via="afkehaya"><span class="glyphicon glyphicon-share"></span>Tweet</a>
-						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-					</div>
-				</div>
-			</div>
-
+		<%= render 'next_steps' %>
+	</div>
 </div>

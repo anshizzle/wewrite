@@ -26,7 +26,8 @@ class LinesController < ApplicationController
 		@line = Line.find(params[:id])
 		@line.update_attribute(:score, @line.score + 1)
 
-		render :json => @line.next_lines
+		@next_lines = @line.next_lines
+		render :layout => false
 	end
 
 	private
