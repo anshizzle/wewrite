@@ -12,7 +12,7 @@ class LinesController < ApplicationController
 			@line = Line.create(line_params)
 			redirect_to line_path(@line)
 		else
-			byebug
+			
 			flash[:error] = "Please sign in or register before creating a line!"
 			unless params[:line][:previous_line_id].empty?
 				redirect_to line_path(Line.find(params[:line][:previous_line_id]))
@@ -40,11 +40,20 @@ class LinesController < ApplicationController
 		render :layout => false
 	end
 
+	def send_invite
+		if user_signed_in?
+			UserInvite.send_invite_email(current_user, params[:email])
+			flash[:notice] = "Your invite was sent!"
+		else
+			flash[:error] = "Please sign in"
+		end
+		redirect_to Line.find(params[:id])
+	end
+
 	private
 
 	def line_params
 		params.require(:line).permit(:text, :previous_line_id, :user_id)
 	end
-
 
 end
