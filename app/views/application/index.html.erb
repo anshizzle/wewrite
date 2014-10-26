@@ -1,24 +1,19 @@
-<<<<<<< HEAD
-<div class="box-container">
-	<div id="story" class="box">
-		<% @lines.each do |line| %>
-			<%= link_to "#{line.text}...", 	line_path(line) %> <br />
-		<% end %>
 
-
-		<%= link_to '+', new_line_path %>
-	</div>	
-=======
 <div class="row">
 
 
 <div class="col-lg-2">
 </div>
 
-	<div class="col-lg-8">
-	<% @lines.each do |line| %>
-		<%= link_to "#{line.text}...", 	line_path(line) %> <br />
-	<% end %>
+
+	<div class="box-container">
+	<div id="story" class="box">
+		
+		<h1>Welcome to WeWrite. Write stories together.</h1>
+
+		<% @lines.each do |line| %>
+			<%= link_to "#{line.text}...", 	line_path(line) %> <br />
+		<% end %>
 
 	<% unless @start == 0 %>
 		<%= link_to 'Back', root_path(:start => @start-@num_display) %> |
@@ -28,12 +23,14 @@
 
 	<% end %>
 
-	<%= link_to 'Start a story', new_line_path %>	
-</div>
+	<%= link_to 'Start a story', new_line_path %>
+	</div>	
+
+	
+
 
 <div class="col-lg-2">
 
 	</div>
 
->>>>>>> 9706a0dcf91943c3ee7222edb0ce485931220b8f
 </div>
