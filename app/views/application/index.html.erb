@@ -1,6 +1,27 @@
-<% @lines.each do |line| %>
-	<%= link_to "#{line.text}...", 	line_path(line) %> <br />
-<% end %>
+<div class="row">
 
 
-<%= link_to '+', new_line_path %>	
+<div class="col-lg-2">
+</div>
+
+	<div class="col-lg-8">
+	<% @lines.each do |line| %>
+		<%= link_to "#{line.text}...", 	line_path(line) %> <br />
+	<% end %>
+
+	<% unless @start == 0 %>
+		<%= link_to 'Back', root_path(:start => @start-@num_display) %> |
+	<% end %>
+	<% unless Line.first_lines.count <= @start+@num_display %>	
+		<%= link_to 'Next', root_path(:start => @start + @num_display) %>
+
+	<% end %>
+
+	<%= link_to 'Start a story', new_line_path %>	
+</div>
+
+<div class="col-lg-2">
+
+	</div>
+
+</div>

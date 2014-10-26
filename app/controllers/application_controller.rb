@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-  	@lines = Line.first_lines.ranked
+  	
+  	params[:start].nil? ? @start = 0 : @start = params[:start].to_i
+  	@num_display = 20
+
+  	@lines = Line.first_lines.ranked.offset(@start).limit(@num_display)
+
   end
 end
