@@ -4,7 +4,7 @@
 				Next Lines: <br />
 				<ul id="next-lines">
 					<% @next_lines.each do |line| %>
-						<li data-id="<%=line.id%>"><%= link_to line.text, '#', :class => "select-next-line" %> </li>
+						<li data-id="<%=line.id%>"><%= link_to line.text, line_path(line), :class => "select-next-line" %> </li>
 					<% end %>
 				</ul>
 			</div>

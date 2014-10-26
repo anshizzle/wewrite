@@ -16,7 +16,8 @@ function setUp() {
 }
 
 function setUpNextLines() {
-	$(".select-next-line").click(function() {
+	$(".select-next-line").click(function(evt) {
+		evt.preventDefault();
 		// console.log($(this).text());
 		// console.log($(this).parent().data("id"));
 		console.log("next line selected: " + $(this).text());
@@ -45,7 +46,8 @@ function setUpNextLines() {
 
 
 function setUpStoryLines() {
-	$("a.story-line").click(function() {
+	$("a.story-line").click(function(evt) {
+		evt.preventDefault();
 		console.log("old story clicked");
 		var line = $(this).text();
 		var line_id = $(this).parent().data("id");
@@ -62,7 +64,8 @@ function setUpStoryLines() {
 }
 
 function setUpNewLineLink() {
-	$(".new-line-link").click(function() {
+	$(".new-line-link").click(function(evt) {
+		evt.preventDefault();
 		console.log("creating new line");
 		var line_id = $("#story span").last().data("id");
 		var m_url = "/lines/new?previous_line_id=" + line_id + "&ajax=1";
