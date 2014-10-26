@@ -1,6 +1,14 @@
-<% @lines.each do |line| %>
-	<%= link_to "#{line.text}...", 	line_path(line) %> <br />
-<% end %>
+<div class="container">
+		<h4>Write stories together one line at a time</h4>
+</div>
+
+<div class="box-container">
+	<div id="story" class="box">
+		<% @lines.each do |line| %>
+			<%= link_to "#{line.text}...", 	line_path(line) %> <br />
+		<% end %>
 
 
-<%= link_to '+', new_line_path %>	
+		<%= link_to '+', new_line_path %>
+	</div>	
+</div>
