@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-  	@lines = Line.first_lines
+  	@lines = Line.first_lines.ranked
   end
 end

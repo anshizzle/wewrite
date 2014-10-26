@@ -1,16 +1,25 @@
-
-<div class="box-container">
-	<div id="story" class="box">
-		<% @lines.each do |line| %>
-			<span class="story-line" data-id="<%=line.id%>"><%= link_to line.text, '#', :class=>"story-line" %></span>
-		<% end %>
-
-	</div>
-
-	<div id="next-steps">
-		<%= render 'next_steps' %>
+<div class="row">
+	<div class="col-lg-2">
 	</div>
 
 
-	<%= render 'invite' %>
+	<div class="box-container col-lg-7	">
+
+
+		<div id="story" class="box">
+			<% @lines.each do |line| %>
+				<span class="story-line" data-id="<%=line.id%>"><%= link_to line.text, '#', :class=>"story-line" %></span>
+			<% end %>
+
+		</div>
+
+		<div id="next-steps">
+			<%= render 'next_steps' %>
+		</div>
+
+	</div>
+
+	<div class="col-lg-2" style="padding-right:25px;">
+		<%= render 'invite' %>
+	</div>
 </div>

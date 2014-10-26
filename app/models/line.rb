@@ -14,7 +14,7 @@
 class Line < ActiveRecord::Base
 
 	scope :first_lines, -> { where previous_line_id: nil}
-	scope :ranked, -> { }
+	scope :ranked, -> { order("score + depth DESC")}
 
 	belongs_to :user
 	belongs_to :previous_line, :class_name => "Line", :foreign_key => "previous_line_id"
