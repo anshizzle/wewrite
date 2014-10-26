@@ -6,13 +6,7 @@
 */
 
 
-$(document).ready(function() {
 
-	console.log("JS Running");
-	setUp();
-	console.log("JS Ran");
-
-});
 
 function setUp() {
 	setUpNextLines();
@@ -129,5 +123,13 @@ function handleSelectNextResponse(data,line, line_id) {
 	window.history.pushState('page', "WeWrite - " + line, '/lines/' + line_id);
 
 }
+
+$(document).ready(function() {
+
+	console.log("JS Running");
+	setUp();
+	console.log("JS Ran");
+
+});
 
 
