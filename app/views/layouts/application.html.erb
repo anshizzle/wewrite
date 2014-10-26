@@ -52,6 +52,7 @@
            <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
       <% end %><!-- /facebook share button -->
 
+<!-- <<<<<<< HEAD
 
   	<div class="row">
   		<div class="col-lg-2">
@@ -63,11 +64,18 @@
   		</div>
   	</div>
       
+======= -->
+			<%= yield %>
+	
+	</div>
 </body>
 
 
   <div class="panel-footer footer">
-    About Us
+    <span class="navbar-brand">
+    <%= link_to "Home", root_path %> |
+    <%= link_to "About", about_path %>
+  </span>
   </div>
 </div>
 </html>

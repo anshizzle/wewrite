@@ -1,7 +1,8 @@
 
 <%= form_tag("/lines/#{@lines.last.id}/send_invite", method: "post") do %>
-	
-	<%= text_field_tag  :email, :placeholder => "friend@example.com"  %>
-	<%= submit_tag "Send Invite!" %>
+
+		<%= text_field_tag  :email, nil, {:placeholder => "friend@example.com", :class => "form-control"}  %>
+		<br/>
+		<%= submit_tag "Send Invite!", :class => "form-control" %>
 
 <% end %>
