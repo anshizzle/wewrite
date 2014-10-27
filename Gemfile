@@ -42,7 +42,8 @@ gem 'letter_opener', group: :development
 gem 'byebug', group: :development
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-twitter' 
+gem 'omniauth-twitter'
+gem 'omniauth-facebook' 
 gem 'jquery-turbolinks'
 
 # Use ActiveModel has_secure_password

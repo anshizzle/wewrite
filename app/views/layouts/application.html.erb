@@ -20,7 +20,24 @@
 </head>
   
 
-<body>    
+<body> 
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '745628565485345',
+      xfbml      : true,
+      version    : 'v2.1'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>   
 
     <%= csrf_meta_tags %>
 <nav class="navbar navbar-default" role="navigation">
@@ -49,6 +66,15 @@
         <li><%= link_to user_omniauth_authorize_path(:twitter) do %>
               <img src="https://g.twimg.com/dev/sites/default/files/images_documentation/sign-in-with-twitter-link.png">
             <% end %>
+
+        </li>
+        <li>
+        <% if user_signed_in? %>
+            Signed in as <%= current_user.name %>. Not you?
+            <%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
+            <% else %>
+            <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+          <% end %>
         </li>
       <% end %>
       </ul>
