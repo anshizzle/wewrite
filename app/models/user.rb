@@ -36,9 +36,10 @@ class User < ActiveRecord::Base
 	      if registered_user
 	        return registered_user
 	      else
-
+byebug
 	        user = User.create(name:auth.extra.raw_info.name,
-	                            provider:auth.provider,
+	                            provider:auth.provider, 
+	                            profile_image_url: normal,
 	                            uid:auth.uid,
 	                            email:auth.uid+"@twitter.com",
 	                            password:Devise.friendly_token[0,20],
@@ -58,7 +59,7 @@ class User < ActiveRecord::Base
 	        return registered_user
 	      else
 	        user = User.create(name:auth.extra.raw_info.name,
-	                            provider:auth.provider,
+	                            provider:auth.provider, 
 	                            uid:auth.uid,
 	                            email:auth.info.email,
 	                            password:Devise.friendly_token[0,20],

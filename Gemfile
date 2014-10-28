@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: :development
-gem 'pg', '0.17.0', group: :production
+#gem 'pg', '0.17.0', group: :production
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -45,6 +45,11 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook' 
 gem 'jquery-turbolinks'
+
+gem 'twitter'
+
+# Used to customize and import images from FB and Twitter
+# gem 'cloudinary'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
