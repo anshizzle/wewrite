@@ -28,6 +28,8 @@ class User < ActiveRecord::Base
    	has_many :lines
 
 	def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
+		
+
 	    user = User.where(:provider => auth.provider, :uid => auth.uid).first
 	    if user
 	      return user
@@ -36,7 +38,7 @@ class User < ActiveRecord::Base
 	      if registered_user
 	        return registered_user
 	      else
-byebug
+
 	        user = User.create(name:auth.extra.raw_info.name,
 	                            provider:auth.provider, 
 	                            profile_image_url: normal,
