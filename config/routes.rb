@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
   root to: "application#index"
     get "about" => "application#about"
+    get "profile" => "application#profile"
     
   resources :lines do 
     member do
