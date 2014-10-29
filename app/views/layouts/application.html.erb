@@ -60,7 +60,6 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-       
          <li> 
           <%= link_to profile_path do %>
            <img class="prof-icon" src="<%= current_user.profile_image_uri %>"> <%= current_user.name %>
