@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
   root to: "application#index"
     get "about" => "application#about"
-
+    
   resources :lines do 
     member do
       get 'select_next'

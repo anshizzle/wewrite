@@ -60,7 +60,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-       <li> <a href="#"> Signed in as <%= current_user.name %>. Not you? </a></li><li> 
+       <li> <a href="#">  <img class="prof-icon" src="<%= current_user.profile_image_uri %>"> <%= current_user.name %>  </a></li><li> 
         <%= link_to "Sign out", destroy_user_session_path,:method => :delete %></li>
         <% else %>
         <li><%= link_to user_omniauth_authorize_path(:twitter) do %>
@@ -70,12 +70,11 @@
         </li>
         <li>
         <% if user_signed_in? %>
-            Signed in as <%= current_user.name %>. Not you?
+             <%= current_user.name %> 
             <%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
             <% else %>
             <%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
           <% end %>
-        </li>
       <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
@@ -109,9 +108,11 @@
 ======= -->
   <div class="page-wrap">
 			<%= yield %>
+
     </div>
 
 	
+
 </body>
 
 
