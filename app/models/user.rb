@@ -71,14 +71,14 @@ class User < ActiveRecord::Base
 	  end
 
 	  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
-	  	# byebug
+	  	
 	    user = User.where(:provider => auth.provider, :uid => auth.uid).first
 	    if user
 
 	    	if user.profile_image_url != auth.info.image 
 			 user.update_attribute(:profile_image_url, auth.info.image)
 		  end
-		  byebug
+		  
 	      return user
 	    else
 	      registered_user = User.where(:email => auth.info.email).first

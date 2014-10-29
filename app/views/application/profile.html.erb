@@ -3,15 +3,10 @@
 	 <img class="icon-bg" src="<%= @user.profile_image_url %>"> <h3> <%= @user.name %> </h3>
 	</div>
 
-	
-
- 
  <div class="pro-box" >	
 	<div class="pro-line">
 	
-
-
-	<h4>Stories You Contribute To:</h4>
+	<h4>Stories <%= @user.name %> Contributes To:</h4>
 		<ul>
 			<% @user.stories.each do |story| %>
 			<li>
@@ -19,7 +14,8 @@
 			</li>
 			<% end %>
 		</ul>
-	<h4>Lines By You:</h4>
+
+	<h4>Lines By <%= @user.name %>:</h4>
 		<ul>
 			<% @user.lines.each do |line| %>
 			<li>

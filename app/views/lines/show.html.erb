@@ -27,7 +27,9 @@
 		Your Fellow Collaborators: <br />
 		<div class="collaborators">
 			<% @lines.last.story.collaborators.uniq.each do |collaborator| %>
+			<%= link_to profile_path do %>
 				<%= image_tag collaborator.profile_image_uri, :class => "prof-icon" %>
+				<% end %>
 			<% end %>
 		</div>
 	</div>
