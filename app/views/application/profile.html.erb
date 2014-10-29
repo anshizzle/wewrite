@@ -9,27 +9,24 @@
  <div class="pro-box" >	
 	<div class="pro-line">
 	
-	<h4>Stories You Started</h4>
-		<ul>
-			<li><% @user.lines.each do |line| %>
-				<%= link_to line.text, line_path(line) %>
-				<% end %>
-			</li>
-		</ul>
+
 
 	<h4>Stories You Contribute To:</h4>
 		<ul>
-			<li><% @user.lines.each do |line| %>
-				<%= link_to line.text, line_path(line) %>
-				<% end %>
+			<% @user.stories.each do |story| %>
+			<li>
+				<%= link_to story.first_line.text, line_path(story.first_line) %>	
 			</li>
+			<% end %>
 		</ul>
 	<h4>Lines By You:</h4>
 		<ul>
-			<li><% @user.lines.each do |line| %>
+			<% @user.lines.each do |line| %>
+			<li>
 				<%= link_to line.text, line_path(line) %>
-				<% end %>
+				
 			</li>
+			<% end %>
 		</ul>
 
 	</div>

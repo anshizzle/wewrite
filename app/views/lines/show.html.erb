@@ -24,6 +24,12 @@
 
 	<div class="col-lg-2" style="padding-right:25px;">
 		<%= render 'invite' %>
+		Your Fellow Collaborators: <br />
+		<div class="collaborators">
+			<% @lines.last.story.collaborators.uniq.each do |collaborator| %>
+				<%= image_tag collaborator.profile_image_uri, :class => "prof-icon" %>
+			<% end %>
+		</div>
 	</div>
 
 </div>
