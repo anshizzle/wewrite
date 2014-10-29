@@ -48,6 +48,9 @@ gem 'jquery-turbolinks'
 
 gem 'twitter'
 
+# Use koala gem to get facebook user info
+# gem 'koala'
+
 # Used to customize and import images from FB and Twitter
 # gem 'cloudinary'
 
