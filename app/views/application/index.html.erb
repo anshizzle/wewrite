@@ -14,8 +14,9 @@
 
 		<% @lines.each do |line| %>
 			<div class="story">
-				<%= link_to "#{line.text}...", 	line_path(line), :class => "story-link" %> 
-				<span class="depth"><%= line.depth %></span> 
+
+				<div class="depth"><%= line.depth %></div> 
+				<div class="story-link"><%= link_to "#{line.text}...", 	line_path(line), :class => "story-link" %> </div>
 			</div>
 		<% end %>
 
