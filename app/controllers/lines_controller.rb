@@ -12,7 +12,12 @@ class LinesController < ApplicationController
 	def create
 		if user_signed_in?
 			@line = Line.create(line_params)
-			redirect_to line_path(@line)
+			if @line
+				redirect_to line_path(@line)
+			else
+				flash[:error] = @line.errors
+				redirect_to line_path(Line.find(params[:line][:previous_line_id]))
+			end
 		else
 			
 			flash[:error] = "Please sign in or register before creating a line!"

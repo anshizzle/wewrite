@@ -13,6 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20141028034221) do
 
+  create_table "collaborators_stories", id: false, force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "collaborator_id"
+    t.integer  "story_id"
+  end
+
   create_table "lines", force: true do |t|
     t.string   "text"
     t.integer  "score",            default: 0
@@ -21,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141028034221) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "story_id"
   end
 
   create_table "stories", force: true do |t|

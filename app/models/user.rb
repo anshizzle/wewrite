@@ -17,6 +17,7 @@
 #  updated_at             :datetime
 #  provider               :string(255)
 #  uid                    :string(255)
+#  name                   :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -26,6 +27,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
    	has_many :lines
+   	has_and_belongs_to_many :stories, :foreign_key => :collaborator_id, :join_table => :collaborators_stories
 
    	def profile_image_uri(size = "mini")
   		# parse_encoded_uri(insecure_uri(profile_image_uri_https(size))) unless @attrs[:profile_image_url_https].nil?
