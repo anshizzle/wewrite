@@ -4,11 +4,13 @@
 #
 #  id               :integer          not null, primary key
 #  text             :string(255)
-#  score            :integer
-#  depth            :integer
+#  score            :integer          default(0)
+#  depth            :integer          default(0)
 #  previous_line_id :integer
 #  created_at       :datetime
 #  updated_at       :datetime
+#  story_id         :integer
+#  user_id          :integer
 #
 
 class Line < ActiveRecord::Base
@@ -17,6 +19,7 @@ class Line < ActiveRecord::Base
 	scope :ranked, -> { order("score + depth DESC")}
 
 	belongs_to :user
+	belongs_to :story
 	belongs_to :previous_line, :class_name => "Line", :foreign_key => "previous_line_id"
 	has_many :next_lines, :class_name => "Line", :foreign_key => "previous_line_id"
 	validates_presence_of :text
