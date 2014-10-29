@@ -13,7 +13,10 @@
 		<h3> Write stories together. </h3>
 
 		<% @lines.each do |line| %>
-			- <%= link_to "#{line.text}...", 	line_path(line), :class => "story-link" %> <br />
+			<div class="story">
+				<%= link_to "#{line.text}...", 	line_path(line), :class => "story-link" %> 
+				<span class="depth"><%= line.depth %></span> 
+			</div>
 		<% end %>
 
 	<% unless @start == 0 %>
