@@ -1,7 +1,7 @@
 
 		<% if @next_lines.count > 0 %>
 			<div class="mini-box">
-				Next Lines: <br />
+				Choose the next branch of the story: 
 				<ul id="next-lines">
 					<% @next_lines.each do |line| %>
 						<li data-id="<%=line.id%>"><%= link_to line.text, line_path(line), :class => "select-next-line" %> </li>
@@ -15,13 +15,13 @@
 				<% if @next_lines.count == 0 %>
 
 					<%= link_to new_line_path(:previous_line_id => @lines.last.id), :class => "new-line-link" do %>
-						<span class="glyphicon glyphicon-edit"></span> The story ends here, or does it? ....  Add new line
+						<span class="glyphicon glyphicon-edit"></span> The story ends here, or does it? ....  Create your own branch
 					<% end %>
 				<% else %>
 
 				
 				<%= link_to new_line_path(:previous_line_id => @lines.last.id), :class => "new-line-link" do %>
-					<span class="glyphicon glyphicon-edit"></span> Add new line
+					<span class="glyphicon glyphicon-edit"></span> Create your own branch
 				<% end %>
 				<% end %>
 				<div class="share">
