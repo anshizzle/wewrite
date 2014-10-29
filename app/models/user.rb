@@ -31,7 +31,11 @@ class User < ActiveRecord::Base
 
    	def profile_image_uri(size = "mini")
   		# parse_encoded_uri(insecure_uri(profile_image_uri_https(size))) unless @attrs[:profile_image_url_https].nil?
-  		self.profile_image_url.sub! "normal", size  unless self.profile_image_url.nil?
+  		unless self.provider == "facebook"
+	  		self.profile_image_url.sub! "normal", size  unless self.profile_image_url.nil?
+		else
+			self.profile_image_url
+		end
 	end
 
 	def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
@@ -67,8 +71,14 @@ class User < ActiveRecord::Base
 	  end
 
 	  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+	  	# byebug
 	    user = User.where(:provider => auth.provider, :uid => auth.uid).first
 	    if user
+
+	    	if user.profile_image_url != auth.info.image 
+			 user.update_attribute(:profile_image_url, auth.info.image)
+		  end
+		  byebug
 	      return user
 	    else
 	      registered_user = User.where(:email => auth.info.email).first
@@ -77,6 +87,7 @@ class User < ActiveRecord::Base
 	      else
 	        user = User.create(name:auth.extra.raw_info.name,
 	                            provider:auth.provider, 
+	                            profile_image_url:auth.info.image,
 	                            uid:auth.uid,
 	                            email:auth.info.email,
 	                            password:Devise.friendly_token[0,20],
