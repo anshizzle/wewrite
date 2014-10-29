@@ -60,7 +60,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-       <li> <a href="#">  <img src="<%= current_user.profile_image_url%>"> <%= current_user.name %>  </a></li><li> 
+       <li> <a href="#">  <img class="prof-icon" src="<%= current_user.profile_image_uri %>"> <%= current_user.name %>  </a></li><li> 
         <%= link_to "Sign out", destroy_user_session_path,:method => :delete %></li>
         <% else %>
         <li><%= link_to user_omniauth_authorize_path(:twitter) do %>
@@ -108,6 +108,7 @@
 ======= -->
   <div class="page-wrap">
 			<%= yield %>
+
     </div>
 
 	
