@@ -31,12 +31,22 @@ Rails.application.routes.draw do
     get "about" => "application#about"
     get "profile" => "application#profile"
     
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+  resources :relationships,       only: [:create, :destroy]
+  
   resources :lines do 
     member do
       get 'select_next'
       post 'send_invite'
+
     end
   end
+
+
 
   # Example resource route with sub-resources:
   #   resources :products do

@@ -48,6 +48,14 @@ gem 'jquery-turbolinks'
 
 gem 'twitter'
 
+# Data Base cleaner for cleaning test data
+gem 'database_cleaner', '~> 1.3.0'
+
+# Installed while trying to figure out following rails tutorial
+gem 'factory_girl_rails'
+
+gem 'faker', '1.4.2'
+
 # Use koala gem to get facebook user info
 # gem 'koala'
 

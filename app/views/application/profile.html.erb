@@ -2,29 +2,37 @@
 	<div class="text-center">	
 	 <img class="icon-bg" src="<%= @user.profile_image_url %>"> <h3> <%= @user.name %> </h3>
 	</div>
+	<aside class="col-lg-4">
+	     
+	      <section class="stats">
+	        <%= render 'application/stats' %>
+	      </section>
+	          <%= render 'follow_form' %>
+	      
+	   </aside>
 <div class="container">
  <div class="pro-box" >	
 	<div class="pro-line">
-	  <div class="row">
-	  	<div class="col-lg-6">
-	        <h4>Stories <%= @user.name %> Contributes To:</h4>
+	      <div class="row">
+		  	<div class="col-lg-4">
+		        <h4>Stories <%= @user.name %> Contributes To:</h4>
+			
+				<% @user.stories.each do |story| %>
+				    <span class="depth"><%= story.first_line.depth %></span> 	
+					<%= link_to story.first_line.text, line_path(story.first_line) %>
+				<% end %>
+			</div>
 		
-			<% @user.stories.each do |story| %>
-			    <span class="depth"><%= story.first_line.depth %></span> 	
-				<%= link_to story.first_line.text, line_path(story.first_line) %>
-			<% end %>
-		</div>
-		
-	<div class="col-lg-6">
-		<h4>Lines By <%= @user.name %>:</h4>
-			<% @user.lines.each do |line| %>
-				<span class="depth"><%= line.depth %></span> 
-				<%= link_to line.text, line_path(line) %>
-			<% end %>
-	
-       </div>
-	</div>
-</div>
+			<div class="col-lg-4">
+				<h4>Lines By <%= @user.name %>:</h4>
+					<% @user.lines.each do |line| %>
+						<span class="depth"><%= line.depth %></span> 
+						<%= link_to line.text, line_path(line) %>
+					<% end %>
+				
+		       </div>
+	      </div>
+     </div>
 </div>	
 
 

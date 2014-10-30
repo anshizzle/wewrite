@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
    	has_many :followers, through: :passive_relationships, source: :follower
    	has_and_belongs_to_many :stories, :foreign_key => :collaborator_id, :join_table => :collaborators_stories
 
+
    	def profile_image_uri(size = "mini")
   		# parse_encoded_uri(insecure_uri(profile_image_uri_https(size))) unless @attrs[:profile_image_url_https].nil?
   		unless self.provider == "facebook"
@@ -51,6 +52,11 @@ class User < ActiveRecord::Base
 	    active_relationships.create(followed_id: other_user.id)
 	end
 
+	# define current user
+	def current_user?(user)
+	user == current_user
+	end
+
 	 # Unfollows a user.
 	def unfollow(other_user)
 	    active_relationships.find_by(followed_id: other_user.id).destroy
@@ -60,6 +66,8 @@ class User < ActiveRecord::Base
 	def following?(other_user)
 	    following.include?(other_user)
 	end
+
+	# Twitter authentication
 	def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
 		
 
@@ -92,6 +100,7 @@ class User < ActiveRecord::Base
 		end 
 	  end
 
+	  # Facbook authentication
 	  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
 	  	
 	    user = User.where(:provider => auth.provider, :uid => auth.uid).first
