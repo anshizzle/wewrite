@@ -5,26 +5,24 @@
 
  <div class="pro-box" >	
 	<div class="pro-line">
-	
-	<h4>Stories <%= @user.name %> Contributes To:</h4>
-		<ul>
+	  <div class="row">
+	  	<div class="col-md-6">
+	        <h4>Stories <%= @user.name %> Contributes To:</h4>
+		
 			<% @user.stories.each do |story| %>
-			<li>
-				<%= link_to story.first_line.text, line_path(story.first_line) %>	
-			</li>
+			    <span class="depth"><%= story.first_line.depth %></span> 	
+				<%= link_to story.first_line.text, line_path(story.first_line) %>
 			<% end %>
-		</ul>
-
-	<h4>Lines By <%= @user.name %>:</h4>
-		<ul>
+		</div>
+		
+	<div class="col-md-6">
+		<h4>Lines By <%= @user.name %>:</h4>
 			<% @user.lines.each do |line| %>
-			<li>
+				<span class="depth"><%= line.depth %></span> 
 				<%= link_to line.text, line_path(line) %>
-				
-			</li>
 			<% end %>
-		</ul>
-
+	
+       </div>
 	</div>
 </div>	
 

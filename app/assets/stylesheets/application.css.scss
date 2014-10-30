@@ -151,3 +151,18 @@ body {
 		max-width: 70%;
 	}
 }
+
+.row .depth {
+		// float: left;
+		margin-right: 10px;
+		margin-top: 2px;
+		margin-left: 5px;
+		background-color:silver;
+		width: 25px;
+		height: 25px;
+		text-align:center;
+		border-radius: 15px;
+		color:white;
+		font-size: 1.2em;
+		display:inline-block;
+	}
