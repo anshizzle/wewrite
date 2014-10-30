@@ -26,7 +26,6 @@ class Line < ActiveRecord::Base
 
 	after_create :update_depths
 
-
 	def update_depths
 		line = self.previous_line
 		while !line.nil?
