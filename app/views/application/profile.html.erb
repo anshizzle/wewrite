@@ -17,27 +17,7 @@
  <div class="pro-box" >	
 	<div class="pro-line">
 
-	      <div class="row">
-		  	<div class="col-lg-12">
-		        <h4>Stories <%= @user.name %> Contributes To:</h4>
-			
-				<% @user.stories.each do |story| %>
-				    <span class="depth"><%= story.first_line.depth %></span> 	
-					<%= link_to story.first_line.text, line_path(story.first_line) %>
-				<% end %>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-lg-12">
-				<h4>Lines By <%= @user.name %>:</h4>
-					<% @user.lines.each do |line| %>
-						<span class="depth"><%= line.depth %></span> 
-						<%= link_to line.text, line_path(line) %>
-					<% end %>
-				
-		       </div>
-	      </div>
-     </div>
+	   
 
 	  <div class="row">
 	  	<div class="col-lg-6">
