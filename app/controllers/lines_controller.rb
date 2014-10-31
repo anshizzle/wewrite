@@ -21,7 +21,6 @@ class LinesController < ApplicationController
 					@line.save
 				end
 
-			
 				redirect_to line_path(@line)
 			else
 				flash[:error] = @line.errors
@@ -48,6 +47,10 @@ class LinesController < ApplicationController
 		@next_lines = @lines.last.next_lines.ranked
 		@lines.last.update_attribute(:score, @lines.last.score + 1)
 		
+	end
+
+	def branch
+
 	end
 
 	def select_next

@@ -10,17 +10,23 @@
 	        <h4>Stories <%= @user.name %> Contributes To:</h4>
 		
 			<% @user.stories.each do |story| %>
-			    <span class="depth"><%= story.first_line.depth %></span> 	
-				<%= link_to story.first_line.text, line_path(story.first_line) %>
+			<div class="story">
+			    <div class="depth"><%= story.first_line.depth %></div> 	
+				<div class="story-link"><%= link_to story.first_line.text, line_path(story.first_line) %></div>
+			</div>
 			<% end %>
 		</div>
 		
 	<div class="col-lg-6">
 		<h4>Lines By <%= @user.name %>:</h4>
-			<% @user.lines.each do |line| %>
-				<span class="depth"><%= line.depth %></span> 
-				<%= link_to line.text, line_path(line) %>
-			<% end %>
+		
+		<% @user.lines.each do |line| %>
+			<div class="story">
+				<div class="depth"><%= line.depth %></div> 
+				<div class="story-link"><%= link_to line.text, line_path(line) %></div>
+			</div>
+
+		<% end %>
 	
        </div>
 	</div>

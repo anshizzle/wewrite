@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     member do
       get 'select_next'
       post 'send_invite'
+      get 'branch'
     end
   end
 
