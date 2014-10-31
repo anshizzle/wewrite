@@ -13,6 +13,16 @@ class LinesController < ApplicationController
 		if user_signed_in?
 			@line = Line.create(line_params)
 			if @line
+				if params[:line][:previous_line_id].empty?
+					@line.story = Story.create
+					@line.save
+				else
+					@line.story = @line.previous_line.story
+					@line.save
+				end
+
+
+
 				redirect_to line_path(@line)
 			else
 				flash[:error] = @line.errors
@@ -37,6 +47,10 @@ class LinesController < ApplicationController
 		@lines = Line.find(params[:id]).collect_lines
 		@next_lines = @lines.last.next_lines.ranked
 		@lines.last.update_attribute(:score, @lines.last.score + 1)
+	end
+
+	def branch
+
 	end
 
 	def select_next
