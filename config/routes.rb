@@ -43,6 +43,8 @@ Rails.application.routes.draw do
       get 'select_next'
       post 'send_invite'
 
+      get 'branch'
+
     end
   end
 

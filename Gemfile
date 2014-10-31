@@ -45,6 +45,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook' 
 gem 'jquery-turbolinks'
+gem "d3-rails"
 
 gem 'twitter'
 
