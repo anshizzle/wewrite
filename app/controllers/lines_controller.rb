@@ -59,7 +59,7 @@ class LinesController < ApplicationController
 	end
 
 	def branch
-
+		@lines = Line.find(params[:id]).collect_lines
 	end
 
 	def select_next
