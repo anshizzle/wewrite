@@ -25,9 +25,18 @@ class User < ActiveRecord::Base
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 	devise :database_authenticatable, :omniauthable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-         
+        
    	has_many :lines
+   	has_many :active_relationships, class_name:  "Relationship",
+                                  foreign_key: "follower_id",
+                                  dependent:   :destroy
+	has_many :passive_relationships, class_name:  "Relationship",
+	                              foreign_key: "followed_id",
+	                              dependent:   :destroy
+    has_many :following, through: :active_relationships, source: :followed
+   	has_many :followers, through: :passive_relationships, source: :follower
    	has_and_belongs_to_many :stories, :foreign_key => :collaborator_id, :join_table => :collaborators_stories
+
 
    	def profile_image_uri(size = "mini")
   		# parse_encoded_uri(insecure_uri(profile_image_uri_https(size))) unless @attrs[:profile_image_url_https].nil?
@@ -38,6 +47,27 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	#Follows a user.
+	def follow(other_user)
+	    active_relationships.create(followed_id: other_user.id)
+	end
+
+	# define current user
+	def current_user?(user)
+	user == current_user
+	end
+
+	 # Unfollows a user.
+	def unfollow(other_user)
+	    active_relationships.find_by(followed_id: other_user.id).destroy
+	end
+
+	 # Returns true if the current user is following the other user.
+	def following?(other_user)
+	    following.include?(other_user)
+	end
+
+	# Twitter authentication
 	def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
 		
 
@@ -70,6 +100,7 @@ class User < ActiveRecord::Base
 		end 
 	  end
 
+	  # Facbook authentication
 	  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
 	  	
 	    user = User.where(:provider => auth.provider, :uid => auth.uid).first

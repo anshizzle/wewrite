@@ -1,10 +1,24 @@
 <div id="story" class="box">
 	<div class="text-center">	
 	 <img class="icon-bg" src="<%= @user.profile_image_url %>"> <h3> <%= @user.name %> </h3>
+			 <% if current_user %>
+
+			        <%= render 'application/stats' %>
+			     
+			   <% else %>
+				   
+				        <%= render 'application/stats' %>
+				     
+		          <%= render 'follow_form' %>
+			   <% end %>
 	</div>
+	
 <div class="container">
  <div class="pro-box" >	
 	<div class="pro-line">
+
+	   
+
 	  <div class="row">
 	  	<div class="col-lg-6">
 	        <h4>Stories <%= @user.name %> Contributes To:</h4>
@@ -34,4 +48,4 @@
 </div>	
 
 
-</div>
+

@@ -7,13 +7,21 @@ class LinesController < ApplicationController
 
 		@ajax = true if params[:ajax]
 		render :layout => false if params[:ajax]
+		if @line.previous_line
+			@line.update_attribute(:story_id, @line.previous_line.story.id)
+		else
+			story = Story.create
+			@line.story = story
+			@line.save
+		end
 	end
 
 	def create
 		if user_signed_in?
 			@line = Line.create(line_params)
 			if @line
-				if params[:line][:previous_line_id].empty?
+			if params[:line][:previous_line_id].empty?
+
 					@line.story = Story.create
 					@line.save
 				else
@@ -26,6 +34,7 @@ class LinesController < ApplicationController
 				flash[:error] = @line.errors
 				redirect_to line_path(Line.find(params[:line][:previous_line_id]))
 			end
+			
 		else
 			
 			flash[:error] = "Please sign in or register before creating a line!"

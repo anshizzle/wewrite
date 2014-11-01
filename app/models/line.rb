@@ -25,8 +25,14 @@ class Line < ActiveRecord::Base
 	validates_presence_of :text
 
 	after_create :update_depths
-
-
+	
+	def self.find_orphan_ids
+		Line.where([
+		  "user_id NOT IN (?) OR story_id NOT IN (?)",
+		  User.pluck("id"),
+		  Story.pluck("id")
+		]).destroy_all 
+	end
 	def update_depths
 		line = self.previous_line
 		while !line.nil?
