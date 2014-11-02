@@ -61,8 +61,8 @@ class Line < ActiveRecord::Base
 
 	def tree_data(parent)
 		data = "{"
-		data = data + "\"name\": \"#{self.text.gsub(/'/, { "'" => "\\'"})}\", \"parent\": \""
-		parent.nil? ? data = data + "null" : data = data + parent.text.gsub(/'/, { "'" => "\\'"})
+		data = data + "\"name\": \"#{self.sanitized_text}\", \"parent\": \""
+		parent.nil? ? data = data + "null" : data = data + parent.sanitized_text
 
 		data = data  + "\""
 
@@ -78,6 +78,13 @@ class Line < ActiveRecord::Base
 		end  
 		data = data + "}\n"
 	end
+
+	def sanitized_text
+		new_text = self.text.gsub(/'/, { "'" => "\\'"} )
+		new_text = new_text.gsub("\n", "")
+		new_text
+	end
+
 
 end
 
