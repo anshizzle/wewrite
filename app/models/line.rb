@@ -60,23 +60,31 @@ class Line < ActiveRecord::Base
 	end
 
 	def tree_data(parent)
-		data = "{"
-		data = data + "\"name\": \"#{self.text.gsub(/'/, { "'" => "\\'"})}\", \"parent\": \""
-		parent.nil? ? data = data + "null" : data = data + parent.text.gsub(/'/, { "'" => "\\'"})
+			data = "{"
+			data = data + "\"name\": \"#{self.sanitized_text}\", \"parent\": \""
+			parent.nil? ? data = data + "null" : data = data + parent.sanitized_text
 
-		data = data  + "\""
+			data = data  + "\""
 
-		unless self.next_lines.empty?
-			data = data + ", \"children\": ["
+			unless self.next_lines.empty?
+				data = data + ", \n\"children\": ["
 
-			self.next_lines.ranked.each do |line| 
-				data = data + line.tree_data(self)
+				self.next_lines.ranked.each do |line| 
+					data = data + line.tree_data(self)
 
-				data = data + ", " if line != self.next_lines.last
-			end
-			data = data + "]"
-		end  
-		data = data + "}\n"
+					data = data + ", " if line != self.next_lines.last
+				end
+				data = data + "]"
+			end  
+			data = data + "}\n"
+
+	end
+
+
+	def sanitized_text
+		new_text = self.text.gsub(/'/, { "'" => "\\'"} )
+		new_text = new_text.gsub("\n", "")
+		new_text
 	end
 
 end

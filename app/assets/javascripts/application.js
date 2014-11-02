@@ -15,5 +15,12 @@
 //= require jquery_ujs
 //= require bootstrap
 //= require turbolinks
+//= require jquery-ui
 //= require d3
+//= require modernizr.mq.js
+//= require jquery.cookie.js
 //= require_tree .
+
+$(document).ready(function(){ 
+	$(".story-link").tooltip({});
+})
