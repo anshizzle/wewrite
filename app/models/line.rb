@@ -61,8 +61,9 @@ class Line < ActiveRecord::Base
 
 	def tree_data(parent)
 		data = "{"
-		data = data + "\"name\": \"#{self.text}\", \"parent\": \""
-		parent.nil? ? data = data + "null" : data = data + parent.text
+		data = data + "\"name\": \"#{self.text.gsub(/'/, { "'" => "\\'"})}\", \"parent\": \""
+		parent.nil? ? data = data + "null" : data = data + parent.text.gsub(/'/, { "'" => "\\'"})
+
 		data = data  + "\""
 
 		unless self.next_lines.empty?
@@ -75,7 +76,7 @@ class Line < ActiveRecord::Base
 			end
 			data = data + "]"
 		end  
-		data = data + "}"
+		data = data + "}\n"
 	end
 
 end
