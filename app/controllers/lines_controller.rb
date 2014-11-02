@@ -17,9 +17,11 @@ class LinesController < ApplicationController
 			if params[:line][:previous_line_id].empty?
 
 					@line.story = Story.create
+					story.collaborators << current_user
 					@line.save
 				else
 					@line.story = @line.previous_line.story
+					@line.story.collaborators << current_user
 					@line.save
 				end
 

@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
   	params[:start].nil? ? @start = 0 : @start = params[:start].to_i
   	@num_display = 20
 
-  	@lines = Line.first_lines.ranked.offset(@start).limit(@num_display)
+  	@lines = Line.first_lines.sort_by { |line| line.total_score }.reverse
+    @lines.slice(@start, @num_display)
 
     
   end
@@ -28,4 +29,6 @@ class ApplicationController < ActionController::Base
   def about 
   	
   end 
+
+
 end
