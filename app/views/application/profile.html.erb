@@ -1,16 +1,10 @@
 <div id="story" class="box">
 	<div class="text-center">	
 	 <img class="icon-bg" src="<%= @user.profile_image_url %>"> <h3> <%= @user.name %> </h3>
-			 <% if current_user %>
-
-			        <%= render 'application/stats' %>
+	 <!--Follower Following Views
+			     <%= render 'application/stats' %>
 			     
-			   <% else %>
-				   
-				        <%= render 'application/stats' %>
-				     
-		          <%= render 'follow_form' %>
-			   <% end %>
+		          <%= render 'follow_form' %>-->		   
 	</div>
 	
 <div class="container">

@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.js
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap
@@ -24,3 +25,7 @@
 $(document).ready(function(){ 
 	$(".story-link").tooltip({});
 })
+
+$(document).ready(function() {
+    $( "#draggable" ).draggable();
+  });

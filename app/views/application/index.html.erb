@@ -17,8 +17,8 @@
 		<% @lines.each do |line| %>
 			<div class="story">
 
-				<div class="depth"><%= line.depth %></div> 
-				<div class="story-link" title="this is a link to the first line of the story"><%= link_to "#{line.text}...", 	line_path(line), :class => "story-link" %> </div>
+				<div class="depth story-link" title="The number represents how many branches have been added to the story"><%= line.depth %></div> 
+				<div class="story-link" title="This is a link to the first line of the story."><%= link_to "#{line.text}...", 	line_path(line), :class => "story-link" %> </div>
 			</div>
 		<% end %>
 

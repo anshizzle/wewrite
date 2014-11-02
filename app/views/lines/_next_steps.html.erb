@@ -2,11 +2,14 @@
 		<% if @next_lines.count > 0 %>
 			<div class="mini-box">
 				Choose the next branch of the story: 
-				<ul id="next-lines">
+				<div id="next-lines">
 					<% @next_lines.each do |line| %>
-						<li data-id="<%=line.id%>"><%= link_to line.text, line_path(line), :class => "select-next-line" %> </li>
+						<div data-id="<%=line.id%>"><span class="depth story-link" title="Others have added possible branches for the next line in this box. Pick one that you like or create your own. Each branch you create represents a new direction the story can take. The community will add more lines to the best branches!">
+
+							<%= line.depth %></span>
+							<%= link_to line.text, line_path(line), :class => "select-next-line" %> </div>
 					<% end %>
-				</ul>
+				</div>
 			</div>
 		<% end %>
 
@@ -21,7 +24,9 @@
 
 				
 				<%= link_to new_line_path(:previous_line_id => @lines.last.id), :class => "new-line-link" do %>
-					<span class="glyphicon glyphicon-edit"></span> Create your own branch
+					<div class="story-link" title="Click here to create your own version of this line. By doing so you create a new branch in the story.">
+						<span class="glyphicon glyphicon-edit"></span> Create your own branch
+					</div>
 				<% end %>
 				<% end %>
 				

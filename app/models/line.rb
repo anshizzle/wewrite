@@ -69,7 +69,7 @@ class Line < ActiveRecord::Base
 	end
 
 	def tree_data(parent)
-<<<<<<< HEAD
+
 			data = "{"
 			data = data + "\"name\": \"#{self.sanitized_text}\", \"parent\": \""
 			parent.nil? ? data = data + "null" : data = data + parent.sanitized_text
