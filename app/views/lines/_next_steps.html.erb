@@ -18,7 +18,7 @@
 				<% if @next_lines.count == 0 %>
 
 					<%= link_to new_line_path(:previous_line_id => @lines.last.id), :class => "new-line-link" do %>
-						<span class="glyphicon glyphicon-edit"></span> The story ends here, or does it? ....  Create your own branch
+						<span class="glyphicon glyphicon-edit"></span> The story ends here, or does it? ....  Add more to the story
 					<% end %>
 				<% else %>
 

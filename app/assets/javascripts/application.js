@@ -26,6 +26,3 @@ $(document).ready(function(){
 	$(".story-link").tooltip({});
 })
 
-$(document).ready(function() {
-    $( "#draggable" ).draggable();
-  });
