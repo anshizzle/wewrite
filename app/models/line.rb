@@ -33,6 +33,15 @@ class Line < ActiveRecord::Base
 		  Story.pluck("id")
 		]).destroy_all 
 	end
+
+
+	def total_score
+		# 1/time_since_last_added_to * score + depth
+
+		time = Time.now - self.story.lines.last.created_at
+		return 500/time*self.score + self.depth
+	end
+
 	def update_depths
 		line = self.previous_line
 		while !line.nil?
@@ -60,10 +69,10 @@ class Line < ActiveRecord::Base
 	end
 
 	def tree_data(parent)
+<<<<<<< HEAD
 			data = "{"
 			data = data + "\"name\": \"#{self.sanitized_text}\", \"parent\": \""
 			parent.nil? ? data = data + "null" : data = data + parent.sanitized_text
-
 			data = data  + "\""
 
 			unless self.next_lines.empty?
@@ -86,6 +95,13 @@ class Line < ActiveRecord::Base
 		new_text = new_text.gsub("\n", "")
 		new_text
 	end
+
+	def sanitized_text
+		new_text = self.text.gsub(/'/, { "'" => "\\'"} )
+		new_text = new_text.gsub("\n", "")
+		new_text
+	end
+
 
 end
 

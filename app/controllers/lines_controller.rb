@@ -7,13 +7,7 @@ class LinesController < ApplicationController
 
 		@ajax = true if params[:ajax]
 		render :layout => false if params[:ajax]
-		if @line.previous_line
-			@line.update_attribute(:story_id, @line.previous_line.story.id)
-		else
-			story = Story.create
-			@line.story = story
-			@line.save
-		end
+
 	end
 
 	def create
@@ -23,9 +17,11 @@ class LinesController < ApplicationController
 			if params[:line][:previous_line_id].empty?
 
 					@line.story = Story.create
+					story.collaborators << current_user
 					@line.save
 				else
 					@line.story = @line.previous_line.story
+					@line.story.collaborators << current_user
 					@line.save
 				end
 
