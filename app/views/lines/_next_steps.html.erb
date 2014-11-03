@@ -28,5 +28,8 @@
 						<span class="glyphicon glyphicon-edit"></span> Create your own branch
 					</div>
 				 <% end %>
+				 <%= link_to branch_line_path(@lines.last), :class => "line-branch-link" do %>
+				 	<span class="tree-link" title="Click here to view how the story has branched over time."> View Story Tree </span>
+				 <% end %>
 				<% end %>
 			</div>

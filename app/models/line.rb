@@ -99,6 +99,7 @@ class Line < ActiveRecord::Base
 	def sanitized_text
 		new_text = self.text.gsub(/'/, { "'" => "\\'"} )
 		new_text = new_text.gsub("\n", "")
+		new_text = new_text.gsub("\r", "")
 		new_text
 	end
 
