@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   end
 
   def profile
+
     params[:id].nil? ?  @user = current_user : @user = User.find(params[:id])
 
     # if params[:id].nil?
