@@ -25,6 +25,7 @@ class Line < ActiveRecord::Base
 	validates_presence_of :text
 
 	after_create :update_depths
+	before_create :convert_new_lines
 	
 	def self.find_orphan_ids
 		Line.where([

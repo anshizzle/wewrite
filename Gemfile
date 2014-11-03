@@ -57,6 +57,7 @@ gem 'database_cleaner', '~> 1.3.0'
 gem 'factory_girl_rails'
 
 gem 'faker', '1.4.2'
+gem 'rails_12factor'
 
 # Use koala gem to get facebook user info
 # gem 'koala'
