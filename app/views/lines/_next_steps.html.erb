@@ -19,9 +19,9 @@
 
 					<%= link_to new_line_path(:previous_line_id => @lines.last.id), :class => "new-line-link" do %>
 						<span class="glyphicon glyphicon-edit"></span> The story ends here, or does it? ....  Add more to the story
+
 					<% end %>
 				<% else %>
-
 				
 				<%= link_to new_line_path(:previous_line_id => @lines.last.id), :class => "new-line-link" do %>
 					<div class="story-link" title="Click here to create your own version of this line. By doing so you create a new branch in the story.">
