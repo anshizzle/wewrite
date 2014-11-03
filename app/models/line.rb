@@ -100,6 +100,7 @@ class Line < ActiveRecord::Base
 		new_text = self.text.gsub(/'/, { "'" => "\\'"} )
 		new_text = new_text.gsub("\n", "")
 		new_text = new_text.gsub("\r", "")
+		new_text = new_text.gsub("\"", "\\\"")
 		new_text
 	end
 
