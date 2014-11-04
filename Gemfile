@@ -58,6 +58,9 @@ gem 'factory_girl_rails'
 
 gem 'faker', '1.4.2'
 
+# Using active admin 
+gem 'activeadmin', github: 'gregbell/active_admin'
+
 # Use koala gem to get facebook user info
 # gem 'koala'
 
