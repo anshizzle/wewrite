@@ -102,8 +102,15 @@
            <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
       <% end %>
  -->
+ <% if flash[:error] %>
+ <div class="flash">
 
+  <%= flash[:error] %>
+ </div
+ <% end %>
   <div class="page-wrap">
+
+
 			<%= yield %>
 
     </div>
