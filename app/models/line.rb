@@ -25,7 +25,7 @@ class Line < ActiveRecord::Base
 	validates_presence_of :text
 
 	after_create :update_depths
-	
+
 	def self.find_orphan_ids
 		Line.where([
 		  "user_id NOT IN (?) OR story_id NOT IN (?)",
@@ -81,19 +81,12 @@ class Line < ActiveRecord::Base
 				self.next_lines.ranked.each do |line| 
 					data = data + line.tree_data(self)
 
-					data = data + ", " if line != self.next_lines.last
+					data = data + ", " if line != self.next_lines.ranked.last
 				end
 				data = data + "]"
 			end  
 			data = data + "}\n"
 
-	end
-
-
-	def sanitized_text
-		new_text = self.text.gsub(/'/, { "'" => "\\'"} )
-		new_text = new_text.gsub("\n", "")
-		new_text
 	end
 
 	def sanitized_text
