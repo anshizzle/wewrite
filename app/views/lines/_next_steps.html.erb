@@ -21,6 +21,10 @@
 						<span class="glyphicon glyphicon-edit"></span> The story ends here, or does it? ....  Add more to the story
 
 					<% end %>
+
+					<%= link_to branch_line_path(@lines.last), :class => "line-branch-link" do %>
+				 		<span class="tree-link" title="Click here to view how the story has branched over time."> View Story Tree </span>
+				 	<% end %>
 				<% else %>
 				
 				<%= link_to new_line_path(:previous_line_id => @lines.last.id), :class => "new-line-link" do %>
