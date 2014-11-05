@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: :development
-#gem 'pg', '0.17.0', group: :production
+gem 'pg', '0.17.0', group: :production
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -57,6 +57,7 @@ gem 'database_cleaner', '~> 1.3.0'
 gem 'factory_girl_rails'
 
 gem 'faker', '1.4.2'
+gem 'rails_12factor'
 
 # Using active admin 
 gem 'activeadmin', github: 'gregbell/active_admin'
