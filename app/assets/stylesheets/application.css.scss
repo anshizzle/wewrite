@@ -54,6 +54,20 @@ body {
 	}
 }
 
+.welcome {
+	width: 50%;
+	float: left;
+	margin-right: 300px;
+
+}
+.start {
+	width: 10%;
+	float: left;
+}
+.clear {
+	clear: both;
+}
+
 .box-container a {
 	color:black;
 	text-decoration: none;
@@ -100,10 +114,7 @@ body {
 	padding-bottom: 2px;
 
 }
-// .panel-footer {
-// 	padding:5px;
-// 	width: 100%;
-// }
+
 
 .panel-footer {
 
