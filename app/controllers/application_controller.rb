@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   	@num_display = 20
 
   	@lines = Line.first_lines.sort_by { |line| line.total_score }.reverse
-    @lines.slice(@start, @num_display)
+    @lines = @lines.slice(@start, @num_display)
 
     
   end
