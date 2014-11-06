@@ -39,8 +39,8 @@ class Line < ActiveRecord::Base
 		# 1/time_since_last_added_to * score + depth
 
 
-		time = Time.now - self.story.lines.last.created_at
-		return 500/time * self.score + self.depth 
+		# time = Time.now - self.story.lines.last.created_at
+		return self.depth + self.score/1000
 	end
 
 	def update_depths
