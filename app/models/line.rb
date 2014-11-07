@@ -39,14 +39,16 @@ class Line < ActiveRecord::Base
 		# 1/time_since_last_added_to * score + depth
 
 
-		# time = Time.now - self.updated_at
-		return self.score/100 + self.depth 
+		time = Time.now - self.updated_depth
+		return 500/time * self.score + self.depth 
 	end
 
 	def update_depths
 		line = self.previous_line
+		self.update_attribute(:updated_depth, Time.now)
 		while !line.nil?
 			line.update_attribute(:depth, line.depth + 1)
+			line.update_attribute(:updated_depth, Time.now)
 			line = line.previous_line
 		end
 	end
