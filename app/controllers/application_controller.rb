@@ -9,14 +9,17 @@ class ApplicationController < ActionController::Base
   	params[:start].nil? ? @start = 0 : @start = params[:start].to_i
     params[:mode].nil? ? @mode = "top" : @mode = params[:mode]
   	@num_display = 20
-
-    if @mode == "top"
-    	@lines = Line.first_lines.sort_by { |line| line.total_score }.reverse
-      @lines = @lines.slice(@start, @num_display)
-    elsif @mode == "new"
+    if @mode == "new"
       @lines = Story.created_at_desc.offset(@start).limit(@num_display).map { |story| story.first_line }
+      Story.count <= (@start + @num_display) ? @has_next = false : @has_next = true
     elsif @mode == "recent"
       @lines = Line.created_at_desc.offset(@start).limit(@num_display)
+      Line.count <= (@start + @num_display) ? @has_next = false : @has_next = true
+    else
+      @lines = Line.first_lines.sort_by { |line| line.total_score }.reverse
+      @lines = @lines.slice(@start, @num_display)
+      Story.count <= (@start + @num_display) ? @has_next = false : @has_next = true
+
     end
     
   end
