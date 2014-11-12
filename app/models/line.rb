@@ -9,14 +9,16 @@
 #  previous_line_id :integer
 #  created_at       :datetime
 #  updated_at       :datetime
-#  story_id         :integer
 #  user_id          :integer
+#  story_id         :integer
+#  updated_depth    :datetime
 #
 
 class Line < ActiveRecord::Base
 
 	scope :first_lines, -> { where previous_line_id: nil}
 	scope :ranked, -> { order("score + depth DESC")}
+	scope :created_at_desc, -> { order("created_at DESC") }
 
 	belongs_to :user
 	belongs_to :story

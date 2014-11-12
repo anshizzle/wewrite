@@ -9,8 +9,9 @@
 #  previous_line_id :integer
 #  created_at       :datetime
 #  updated_at       :datetime
-#  story_id         :integer
 #  user_id          :integer
+#  story_id         :integer
+#  updated_depth    :datetime
 #
 
 require 'test_helper'
