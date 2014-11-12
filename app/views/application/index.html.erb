@@ -31,10 +31,10 @@
 		<% end %>
 
 	<% unless @start == 0 %>
-		<%= link_to 'Back', root_path(:start => @start-@num_display) %> |
+		<%= link_to 'Back', root_path(:start => @start-@num_display, :mode => @mode) %> |
 	<% end %>
 	<% unless Line.first_lines.count <= @start+@num_display %>	
-		<%= link_to 'Next', root_path(:start => @start + @num_display) %>
+		<%= link_to 'Next', root_path(:start => @start + @num_display, :mode => @mode) %>
 
 	<% end %>
 	<br />
