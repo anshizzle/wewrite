@@ -76,18 +76,22 @@ class Line < ActiveRecord::Base
 	def tree_data(parent)
 
 			data = "{"
-			data = data + "\"name\": \"#{self.sanitized_text}\", \"parent\": \""
-			parent.nil? ? data = data + "null" : data = data + parent.sanitized_text
+			data = data + "\"name\": \"#{self.sanitized_text[/(\s*\S+){#{3}}/]}...\", \"parent\": \""
+			parent.nil? ? data = data + "null" : data = data + parent.sanitized_text[/(\s*\S+){#{3}}/] + "..."
 			data = data  + "\""
 
 			unless self.next_lines.empty?
 				data = data + ", \n\"children\": ["
 
-				self.next_lines.ranked.each do |line| 
+				lines = self.next_lines.ranked
+
+				lines.each do |line| 
 					data = data + line.tree_data(self)
 
-					data = data + ", " if line != self.next_lines.ranked.last
+					data = data + ", " unless line == lines.last
 				end
+
+
 				data = data + "]"
 			end  
 			data = data + "}\n"
