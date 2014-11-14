@@ -1,4 +1,3 @@
-
 <%= form_tag("/lines/#{@lines.last.id}/send_invite", method: "post") do %>
 		Invite a friend to collaborate!<br />
 		<%= text_field_tag  :email, nil, {:placeholder => "friend@example.com", :class => "form-control"}  %>

@@ -6,7 +6,7 @@ gem 'rails', '4.1.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', group: :development
 
-gem 'pg', '0.17.0', group: :production
+#gem 'pg', '0.17.0', group: :production
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -64,7 +64,7 @@ gem 'rails_12factor'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Use koala gem to get facebook user info
-# gem 'koala'
+gem "koala", "~> 1.10.0rc"
 
 # Used to customize and import images from FB and Twitter
 # gem 'cloudinary'

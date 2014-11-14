@@ -10,6 +10,7 @@
 
 	<div class="box-container">
 	<div id="story" class="box">
+<<<<<<< HEAD
 		<div class="welcome">
 			<h1 >Welcome to WeWrite. </h1>
 		 	<h3> Write stories together. </h3>
@@ -19,26 +20,42 @@
 		</div>
 		<div class="clear"></div>
 		
+=======
+>>>>>>> 87d9cf80359e43265874a2cb6ccce06672cb7f91
 
+		<div class="text-center">
+			<h1>Welcome to WeWrite. </h1>
+			<h3> Write stories together. </h3>
+
+
+
+			<%= @mode == "top" ? link_to("Top Stories", root_path(:mode => "top"), :class => "selected") : link_to("Top Stories", root_path(:mode => "top"))%> | 
+			<%= 	@mode == "recent" ? link_to("Recent Lines", root_path(:mode => "recent"), :class => "selected") :  link_to("Recent Lines", root_path(:mode => "recent")) %> |
+			<%= @mode == "new" ? link_to("New Stories", root_path(:mode => "new"), :class => "selected") : link_to("New Stories", root_path(:mode => "new")) %>
+		</div>
+		<div style="float:right;"><%= link_to '+ Start a story', new_line_path, :class => "btn btn-default" %></div>
 		<% @lines.each do |line| %>
 			<div class="story">
 
-				<div class="depth story-link" title="The number represents how many branches have been added to the story"><%= line.depth %></div> 
-				<div class="story-link" title="This is a link to the first line of the story."><%= link_to "#{line.text}...", 	line_path(line), :class => "story-link" %> </div>
+				<div class="depth story-link" title="This number represents how many branches have been added to the story"><%= line.depth %></div> 
+				<div class="story-link" title="This is a link to the story."><%= link_to "#{line.text}...", 	line_path(line), :class => "story-link" %> </div>
 			</div>
 		<% end %>
 
 	<% unless @start == 0 %>
-		<%= link_to 'Back', root_path(:start => @start-@num_display) %> |
+		<%= link_to 'Back', root_path(:start => @start-@num_display, :mode => @mode) %> |
 	<% end %>
-	<% unless Line.first_lines.count <= @start+@num_display %>	
-		<%= link_to 'Next', root_path(:start => @start + @num_display) %>
-
+	<% if @has_next %>	
+		<%= link_to 'Next', root_path(:start => @start + @num_display, :mode => @mode) %>
 	<% end %>
 	<br />
 
+<<<<<<< HEAD
 	
 	
+=======
+
+>>>>>>> 87d9cf80359e43265874a2cb6ccce06672cb7f91
 	</div>	
 
 	
