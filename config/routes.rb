@@ -33,6 +33,7 @@ Rails.application.routes.draw do
     get "about" => "application#about"
     get "profile" => "application#profile"
     
+    
   resources :users do
     member do
       get :following, :followers
