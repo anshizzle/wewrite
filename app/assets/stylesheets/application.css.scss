@@ -41,7 +41,9 @@
 	border-color:darkgray;
 	border-width:2px;
 
-
+	@media(max-width:480px) {
+		width: 100%;
+	}
 }
 
 .navbar {
@@ -232,6 +234,11 @@ input[type=submit].btn.btn-default {
 }
 .dropdown {
 	width: 150px;
+}
+
+.selected { 
+	font-weight: bold;
+	font-size:1.1em;
 }
 .row .depth {
 		// float: left;

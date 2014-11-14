@@ -14,7 +14,7 @@
 	  	<div class="col-lg-6">
 	        <h4>Stories <%= @user.name %> Contributes To:</h4>
 		
-			<% @user.stories.each do |story| %>
+			<% @user.stories.uniq.each do |story| %>
 			<div class="story">
 			    <div class="depth"><%= story.first_line.depth %></div> 	
 				<div class="story-link"><%= link_to story.first_line.text, line_path(story.first_line) %></div>
