@@ -17,6 +17,10 @@
 @import "bootstrap";
 
 /*HOME PAGE*/
+.box-container a.btn-info {
+	color: white;
+}
+
 .container {
 	position: relative;
 	width: 75%;
@@ -277,4 +281,14 @@ input[type=submit].btn.btn-default {
 
 .tree-link {
 	float:right;
+}
+
+//signup page
+.signup {
+	margin: 0 auto;
+	text-align:center;
+
+}
+.box-container a.signup.btn {
+	color:white;
 }

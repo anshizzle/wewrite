@@ -6,7 +6,15 @@ class LinesController < ApplicationController
 		@lines = @line.collect_lines
 
 		@ajax = true if params[:ajax]
-		render :layout => false if params[:ajax]
+		
+
+		if user_signed_in?
+			render :layout => false if params[:ajax]
+		else
+			flash[:error] = "Please sign in or register before creating a line!"
+			redirect_to signup_path(:ajax => @ajax)
+		end
+
 
 	end
 

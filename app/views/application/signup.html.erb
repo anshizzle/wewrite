@@ -1,0 +1,17 @@
+<div class="box-container">
+	<div id="story" class="box">
+
+	<div class="signup">
+		<h1>Sign up to contribute to stories.<h1>
+	<div class="btn btn-default btn-lg">
+	<%= link_to "Sign up with Twitter", user_omniauth_authorize_path(:twitter) %>
+	</div>
+		
+		<br></br>
+
+		<div class="btn btn-default btn-lg">
+		<%= link_to "Sign up with Facebook", user_omniauth_authorize_path(:facebook) %>
+	    </div>
+	</div>
+ </div>
+</div>

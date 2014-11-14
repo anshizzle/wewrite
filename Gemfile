@@ -64,7 +64,7 @@ gem 'rails_12factor'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 # Use koala gem to get facebook user info
-# gem 'koala'
+gem "koala", "~> 1.10.0rc"
 
 # Used to customize and import images from FB and Twitter
 # gem 'cloudinary'

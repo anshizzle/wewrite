@@ -40,5 +40,9 @@ class ApplicationController < ActionController::Base
   	
   end 
 
+  def signup
+      render :layout => false if params[:ajax]
+  end
+
 
 end
