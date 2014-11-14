@@ -10,18 +10,7 @@
 
 	<div class="box-container">
 	<div id="story" class="box">
-<<<<<<< HEAD
-		<div class="welcome">
-			<h1 >Welcome to WeWrite. </h1>
-		 	<h3> Write stories together. </h3>
-	    </div>
-		<div class="start">
-			<%= link_to '+ Start a story', new_line_path, :class => "btn btn-default pad-left" %>
-		</div>
-		<div class="clear"></div>
-		
-=======
->>>>>>> 87d9cf80359e43265874a2cb6ccce06672cb7f91
+
 
 		<div class="text-center">
 			<h1>Welcome to WeWrite. </h1>
@@ -33,7 +22,8 @@
 			<%= 	@mode == "recent" ? link_to("Recent Lines", root_path(:mode => "recent"), :class => "selected") :  link_to("Recent Lines", root_path(:mode => "recent")) %> |
 			<%= @mode == "new" ? link_to("New Stories", root_path(:mode => "new"), :class => "selected") : link_to("New Stories", root_path(:mode => "new")) %>
 		</div>
-		<div style="float:right;"><%= link_to '+ Start a story', new_line_path, :class => "btn btn-default" %></div>
+		
+		<div style="float:right;"><%= link_to '+ Start a story', new_line_path, :class => "btn btn-info btn-lg" %></div>
 		<% @lines.each do |line| %>
 			<div class="story">
 
@@ -50,12 +40,7 @@
 	<% end %>
 	<br />
 
-<<<<<<< HEAD
-	
-	
-=======
 
->>>>>>> 87d9cf80359e43265874a2cb6ccce06672cb7f91
 	</div>	
 
 	
