@@ -33,6 +33,15 @@ class LinesController < ApplicationController
 					@line.save
 				end
 
+				byebug
+
+				if params[:line][:tweet] == "true"
+					#tweet it
+					message = @line.text[0..100] + " #wewrite wewrite.io/lines/#{@line.id}"
+					current_user.tweet(message)
+				end
+
+
 				redirect_to line_path(@line)
 			else
 				flash[:error] = @line.errors

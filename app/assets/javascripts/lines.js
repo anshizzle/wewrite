@@ -124,6 +124,11 @@ function handleSelectNextResponse(data,line, line_id) {
 
 }
 
+function setTweet() {
+
+	document.getElementById("line_tweet").value = "true";
+}
+
 $(document).ready(function() {
 
 	console.log("JS Running");

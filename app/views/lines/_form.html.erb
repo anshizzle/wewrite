@@ -2,10 +2,11 @@
 	<%= f.text_area :text, :placeholder => "type your line here", :class => "form-control" %>
 	<%= f.hidden_field :previous_line_id, :value => @line.previous_line_id %>
 	<%= f.hidden_field :user_id, :value => current_user.id unless current_user.nil? %>
+	<%= f.hidden_field :tweet, :value => false %>
 	<br />
 	<div class="text-center">
 	<%= f.submit "Create Line", :class => "form-control btn btn-default" %>
-	<%= f.submit "Create and Tweet", :class => " form-control btn btn-warning" %>
+	<%= f.submit "Create and Tweet", :class => " form-control btn btn-warning", :onclick => "setTweet();" %>
 </div>
 
 <% end %>
