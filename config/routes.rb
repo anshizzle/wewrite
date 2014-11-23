@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'tweets/new'
+
+  get 'tweets/create'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
@@ -41,7 +45,7 @@ Rails.application.routes.draw do
     end
   end
   resources :relationships,       only: [:create, :destroy]
-  
+   resources :tweets, only: [:new, :create]
   resources :lines do 
     member do
       get 'select_next'

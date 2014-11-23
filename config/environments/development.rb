@@ -40,4 +40,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :sendgrid_actionmailer
   config.action_mailer.sendgrid_actionmailer_settings = {api_user: 'ajain2189', api_key: "wewritetogether"}
 
+
+    config.twitter_key = "ttoRoTicOgPCOChAGpk4xHBdl"
+  config.twitter_secret =  "gRwqev2BVkuW8R83UgflsFfKLcLuB3edrCE6iPdO9cWorFXwn8"
 end

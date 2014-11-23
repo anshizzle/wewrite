@@ -76,9 +76,12 @@ class User < ActiveRecord::Base
 
 	    if user
 
-	      if user.profile_image_url != auth.extra.raw_info.profile_image_url 
-			 user.update_attribute(:profile_image_url, auth.extra.raw_info.profile_image_url)
-		  end
+	      
+		 user.profile_image_url = auth.extra.raw_info.profile_image_url
+		 user.oauth_token = auth.credentials.token
+		 user.oauth_secret = auth.credentials.secret
+		 user.save!
+
 
 	      return user 
 
@@ -96,6 +99,8 @@ class User < ActiveRecord::Base
 	                            uid:auth.uid,
 	                            email:auth.uid+"@twitter.com",
 	                            password:Devise.friendly_token[0,20],
+	                            oauth_token: auth.credentials.token,
+	                            oauth_secret: auth.credentials.secret
 	                          )
           end
 		end 
@@ -109,9 +114,9 @@ class User < ActiveRecord::Base
 
 	    	if user.profile_image_url != auth.info.image 
 			 user.update_attribute(:profile_image_url, auth.info.image)
-		  end
+		  	end
 		  
-	      return user
+	      	return user
 	    else
 	      registered_user = User.where(:email => auth.info.email).first
 	      if registered_user
@@ -124,7 +129,21 @@ class User < ActiveRecord::Base
 	                            email:auth.info.email,
 	                            password:Devise.friendly_token[0,20],
 	                          )
-      end   
-     end
- end
+      	  end   
+     	end
+ 	  end
+
+
+	  def tweet(tweet)
+	    client = Twitter::REST::Client.new do |config|
+	      config.consumer_key        = Rails.application.config.twitter_key
+	      config.consumer_secret     = Rails.application.config.twitter_secret
+	      config.access_token        =oauth_token
+	      config.access_token_secret = oauth_secret
+	    end
+	    
+	    client.update(tweet)
+	  end
+  
+
 end

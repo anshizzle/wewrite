@@ -3,6 +3,9 @@
 	<%= f.hidden_field :previous_line_id, :value => @line.previous_line_id %>
 	<%= f.hidden_field :user_id, :value => current_user.id unless current_user.nil? %>
 	<br />
-	<%= f.submit :class => "form-control btn btn-default" %>
+	<div class="text-center">
+	<%= f.submit "Create Line", :class => "form-control btn btn-default" %>
+	<%= f.submit "Create and Tweet", :class => " form-control btn btn-warning" %>
+</div>
 
 <% end %>
