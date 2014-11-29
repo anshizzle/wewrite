@@ -1,41 +1,53 @@
-<div class="row">
-	<div class="col-lg-2">
-	<button class="btn btn-default">send message</button>
-	
-	</div>
 
-
-	<div class="box-container col-lg-7	">
-		<div id="story" class="box">
-
-			<% @lines.each do |line| %>
-				<span class="story-line" data-id="<%=line.id%>"><%= link_to line.text, '#', :class=>"story-line" %></span>
-			<% end %>
-
-		</div>
-
-		<div id="next-steps">
-			<%= render 'next_steps' %>
-		</div>
 	
 
-	<span style="font-size:.9em; margin-bottom:15px; display:block;">*If the links don't work, try refreshing.</span>
+<div class="container">
+	
+		<div class="row">
+			<div class="col-lg-2">
+				<div class="chatbox">
+					<% @lines.last.story.collaborators.uniq.each do |collaborator| %>
+					<%= link_to profile_path(:id => collaborator.id) do %>
+						<%= image_tag collaborator.profile_image_uri, :class => "prof-icon" %>
+					<% end %>
+				<% end %>	<p>blah blah</p>
+				</div>	
+				<div class="formchat">
+						<input type="text" class="form-control" placeholder="enter message">
+					</div>
+				<button class="btn btn-default">send message</button>
+			</div>
+		<div class="box-container">
+			<div class="col-lg-7">
+				<div id="story" class="box">
 
-	</div>
+					<% @lines.each do |line| %>
+						<span class="story-line" data-id="<%=line.id%>"><%= link_to line.text, '#', :class=>"story-line" %></span>
+					<% end %>
 
-	<div class="col-lg-2" style="padding-right:25px;">
-		<%= render 'invite' %>
-		Your Fellow Collaborators: <br />
-		<div class="collaborators">
+				</div>
+
+				<div id="next-steps">
+					<%= render 'next_steps' %>
+				</div>
+	
+
+				<span style="font-size:.9em; margin-bottom:15px; display:block;">*If the links don't work, try refreshing.</span>
+
+			</div>
+		</div>	
+
+			<div class="col-lg-2 col">
+				<%= render 'invite' %>
+				Your Fellow Collaborators: 
+				<div class="collaborators">
 			
-			<% @lines.last.story.collaborators.uniq.each do |collaborator| %>
-				<%= link_to profile_path(:id => collaborator.id) do %>
-					<%= image_tag collaborator.profile_image_uri, :class => "prof-icon" %>
+				<% @lines.last.story.collaborators.uniq.each do |collaborator| %>
+					<%= link_to profile_path(:id => collaborator.id) do %>
+						<%= image_tag collaborator.profile_image_uri, :class => "prof-icon" %>
+					<% end %>
 				<% end %>
-			<% end %>
-			
-			
-			
-		</div>
-
+			  </div>
+		  </div>
+	  </div>
 </div>
