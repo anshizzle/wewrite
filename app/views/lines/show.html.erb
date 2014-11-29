@@ -1,12 +1,13 @@
 <div class="row">
 	<div class="col-lg-2">
+	<button class="btn btn-default">send message</button>
+	
 	</div>
 
 
 	<div class="box-container col-lg-7	">
-
-
 		<div id="story" class="box">
+
 			<% @lines.each do |line| %>
 				<span class="story-line" data-id="<%=line.id%>"><%= link_to line.text, '#', :class=>"story-line" %></span>
 			<% end %>
