@@ -33,7 +33,6 @@ class LinesController < ApplicationController
 					@line.save
 				end
 
-				byebug
 
 				if params[:line][:tweet] == "true"
 					#tweet it
