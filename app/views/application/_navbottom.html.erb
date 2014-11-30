@@ -1,0 +1,81 @@
+<% if user_signed_in? %>
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="message-center">
+      <div class="btn-group dropup">
+       
+        <button type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          
+          <span class="glyphicon glyphicon-inbox"></span>
+          
+        </button>
+        <ul class="dropdown-menu createmenu" role="menu">
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Notification 1</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Notification 2</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Notification 3</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Notification 4</a></li>
+        </ul>
+      </div>
+
+      <div class="btn-group dropup">
+     
+      <button type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        
+        <span>Chat</span>
+        
+      </button>
+      <ul class="dropdown-menu chatmenu" role="menu">
+          <div class="chatbox">
+              <p>This is A MESSAGE from </p>
+            </div>  
+            <div class="formchat">
+                <input type="text" class="form-control" placeholder="enter message">
+              </div>
+            <button class="btn btn-lg btn-info msgbtn">send message</button>
+      </ul>
+    </div>
+
+      <div class="btn-group dropup">
+     
+      <button type="button" class="btn btn-lg btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        
+        <span>Invite!</span>
+        
+      </button>
+      <ul class="dropdown-menu invitemenu" role="menu">
+        <button class="btn btn-lg btn-info invbtn">Facebook Invite</button>
+        <button class="btn btn-lg btn-info invbtn">Gmail Invite</button>
+            <div class="formchat">
+                <input type="text" class="form-control" placeholder="friend@example.com">
+              </div>
+            <button class="btn btn-lg btn-info invbtn">Send Invite</button>
+      </ul>
+    </div>
+
+  </div>
+
+    <div class="create-new">
+      <div class="btn-group dropup">
+         
+          <button type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span>Create Line</span>
+          </button>
+          <ul class="dropdown-menu createmenu" role="menu">
+          
+                <div class="formline">
+                    <p>Enter New Line Here</p>
+                  </div>
+                <button class="btn btn-lg btn-warning invbtn">Create and Tweet</button>
+                <button class="btn btn-lg btn-default invbtn">Create</button>
+
+          </ul>
+        </div>
+        
+         
+          <button type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span>View Tree</span>
+          </button>
+      
+      </div>
+
+    </nav>
+  <% end %>
