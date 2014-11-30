@@ -4,21 +4,9 @@
 <div class="container">
 	
 		<div class="row">
-			<div class="col-lg-2">
-				<div class="chatbox">
-					<% @lines.last.story.collaborators.uniq.each do |collaborator| %>
-					<%= link_to profile_path(:id => collaborator.id) do %>
-						<%= image_tag collaborator.profile_image_uri, :class => "prof-icon" %>
-					<% end %>
-				<% end %>	<p>blah blah</p>
-				</div>	
-				<div class="formchat">
-						<input type="text" class="form-control" placeholder="enter message">
-					</div>
-				<button class="btn btn-default">send message</button>
-			</div>
+			
 		<div class="box-container">
-			<div class="col-lg-7">
+			<div class="col-lg-9">
 				<div id="story" class="box">
 
 					<% @lines.each do |line| %>
@@ -38,7 +26,6 @@
 		</div>	
 
 			<div class="col-lg-2 col">
-				<%= render 'invite' %>
 				Your Fellow Collaborators: 
 				<div class="collaborators">
 			

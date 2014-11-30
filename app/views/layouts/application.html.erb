@@ -59,14 +59,14 @@
       <span class="navbar-brand">
         <%= link_to 'WeWrite.', root_path %> 
         <%= link_to 'Home', root_path %> |
-         <%= link_to 'How It Works', about_path %>
-      </span>
+         <%= link_to 'How It Works', about_path %> 
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
+        
          <li> 
           <%= link_to profile_path do %>
            <img class="prof-icon" src="<%= current_user.profile_image_uri %>"> <%= current_user.name %>
@@ -118,9 +118,85 @@
 			<%= yield %>
 
     </div>
+ <% if user_signed_in? %>
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+    <div class="message-center">
+      <div class="btn-group dropup">
+       
+        <button type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+          
+          <span class="glyphicon glyphicon-inbox"></span>
+          
+        </button>
+        <ul class="dropdown-menu createmenu" role="menu">
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Notification 1</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Notification 2</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Notification 3</a></li>
+              <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Notification 4</a></li>
+        </ul>
+      </div>
 
-	
+      <div class="btn-group dropup">
+     
+      <button type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        
+        <span>Chat</span>
+        
+      </button>
+      <ul class="dropdown-menu chatmenu" role="menu">
+          <div class="chatbox">
+              <p>This is A MESSAGE from </p>
+            </div>  
+            <div class="formchat">
+                <input type="text" class="form-control" placeholder="enter message">
+              </div>
+            <button class="btn btn-lg btn-info msgbtn">send message</button>
+      </ul>
+    </div>
 
+      <div class="btn-group dropup">
+     
+      <button type="button" class="btn btn-lg btn-warning dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+        
+        <span>Invite!</span>
+        
+      </button>
+      <ul class="dropdown-menu invitemenu" role="menu">
+        <button class="btn btn-lg btn-info invbtn">Facebook Invite</button>
+        <button class="btn btn-lg btn-info invbtn">Gmail Invite</button>
+            <div class="formchat">
+                <input type="text" class="form-control" placeholder="friend@example.com">
+              </div>
+            <button class="btn btn-lg btn-info invbtn">Send Invite</button>
+      </ul>
+    </div>
+
+  </div>
+
+    <div class="create-new">
+      <div class="btn-group dropup">
+         
+          <button type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span>Create Line</span>
+          </button>
+          <ul class="dropdown-menu createmenu" role="menu">
+          
+                <div class="formline">
+                    <p>Enter New Line Here</p>
+                  </div>
+                <button class="btn btn-lg btn-info createbtn">Create</button>
+          </ul>
+        </div>
+        
+         
+          <button type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span>View Tree</span>
+          </button>
+      
+      </div>
+
+    </nav>
+  <% end %>
 </body>
 
 
