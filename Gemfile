@@ -10,6 +10,8 @@ gem 'sqlite3', group: :development
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
+# Mixpanel Gem for user tracking.
+gem 'mixpanel-ruby'
 
 gem 'bootstrap-sass', '~> 3.2.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -66,9 +68,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 # Use koala gem to get facebook user info
 gem "koala", "~> 1.10.0rc"
 
-# Mixpanel Gem for user tracking.
 
-gem 'mixpanel-ruby'
 
 # Used to customize and import images from FB and Twitter
 # gem 'cloudinary'

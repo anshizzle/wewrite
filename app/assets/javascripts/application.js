@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery.js
 //= require jquery.turbolinks
@@ -20,7 +21,6 @@
 //= require d3
 //= require modernizr.mq.js
 //= require jquery.cookie.js
-//= require 'mixpanel-ruby'
 //= require_tree .
 
 $(document).ready(function(){ 
